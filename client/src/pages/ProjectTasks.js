@@ -1,5 +1,4 @@
 import React from 'react';
-import './ProjectTasks.css';
 
 function ProjectTasks() {
   return (

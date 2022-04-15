@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProjectTasks.css';
+import './ProjectView.css';
 
 import ProjectTasks from './ProjectTasks';
 import AsideNavbar from '../components/AsideNavbar';
@@ -9,7 +9,7 @@ function ProjectView({
   currentSection
 }) {
 
-  function getCurrentSecion() {
+  function getCurrentSection() {
     switch(currentSection) {
       case "tasks":
         return <ProjectTasks />;
@@ -26,7 +26,7 @@ function ProjectView({
       <main className="main">
         <TopNavbar profileName="Carlos Paez" />
         <div className="content-wrapper">
-          {getCurrentSecion()}
+          {getCurrentSection()}
         </div>
       </main>
     </>
