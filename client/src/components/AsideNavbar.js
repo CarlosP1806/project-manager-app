@@ -1,8 +1,10 @@
 import React from 'react'
+import './AsideNavbar.css';
 
 function AsideNavbar({
   projectName,
   profileOwnership,
+  currentView
 }) {
   return (
     <>
@@ -12,10 +14,18 @@ function AsideNavbar({
           <p className="aside-navbar__subtitle">{profileOwnership}</p>
         </header>
         <ul className="aside-navbar__links">
-          <li className="aside-navbar__link"><a>Overview</a></li>
-          <li className="aside-navbar__link"><a>Tasks</a></li>
-          <li className="aside-navbar__link"><a>Calendar</a></li>
-          <li className="aside-navbar__link"><a>Settings</a></li>
+          <li className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}>
+            <a>Overview</a>
+          </li>
+          <li className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}>
+            <a>Tasks</a>
+          </li>
+          <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
+            <a>Calendar</a>
+          </li>
+          <li className={`aside-navbar__link ${currentView === 'settings' ? 'active' : ''}`}>
+            <a>Settings</a>
+          </li>
         </ul>
       </aside>
     </>

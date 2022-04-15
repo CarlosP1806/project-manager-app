@@ -8,7 +8,10 @@ function ProjectTasks({
 }) {
   return (
     <>
-      <AsideNavbar projectName={projectName} profileOwnership={profileOwnership}/>
+      <AsideNavbar
+        projectName={projectName}
+        profileOwnership={profileOwnership}
+        currentView="tasks" />
       <main className="main">
         Hello World
       </main>
