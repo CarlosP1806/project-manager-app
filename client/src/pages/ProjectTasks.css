@@ -2,4 +2,12 @@ main {
     position: relative;
     left: var(--aside-nav-width);
     width: calc(100% - var(--aside-nav-width));
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.section {
+    background-color: var(--light-color);
+    flex: 1;
 }

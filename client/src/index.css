@@ -9,6 +9,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+html, body, #root {
+  min-height: 100vh;
+}
+
 :root {
   /* Text */
   --tiny-font: 1.6rem;
@@ -20,6 +24,7 @@
   /* Colors */
   --main-color: #030f62;
   --secondary-color: #312a83;
+  --light-color: #eef1f5;
 
   /* Layout */
   --aside-nav-width: 15%;

@@ -1,0 +1,13 @@
+.top-navbar {
+    background-color: white;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: 0 5px 5px 5px rgba(0,0,0,0.01);
+}
+
+.top-navbar__item {
+    margin-left: 2rem;
+    font-size: var(--tiny-font);
+    font-weight: normal;
+}
