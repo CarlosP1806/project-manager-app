@@ -7,7 +7,9 @@ function App() {
     <Router>
       <>
         <Routes>
-          <Route path="/" element={<ProjectTasks />} />
+          <Route
+            path="/"
+            element={<ProjectTasks projectName="Test Project" profileOwnership="Owner"/>} />
         </Routes>
       </>
     </Router>

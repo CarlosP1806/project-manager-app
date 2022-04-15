@@ -1,8 +1,18 @@
 import React from 'react';
+import './ProjectTasks.css';
+import AsideNavbar from '../components/AsideNavbar';
 
-function ProjectTasks() {
+function ProjectTasks({
+  projectName,
+  profileOwnership
+}) {
   return (
-    <div>ProjectTasks</div>
+    <>
+      <AsideNavbar projectName={projectName} profileOwnership={profileOwnership}/>
+      <main className="main">
+        Hello World
+      </main>
+    </>
   );
 }
 
