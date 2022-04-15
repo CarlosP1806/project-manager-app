@@ -1,8 +1,16 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProjectTasks from './pages/ProjectTasks';
+
 function App() {
   return (
-    <div className="App">
-      Hello, world
-    </div>
+    <Router>
+      <>
+        <Routes>
+          <Route path="/" element={<ProjectTasks />} />
+        </Routes>
+      </>
+    </Router>
   );
 }
 
