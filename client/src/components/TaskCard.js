@@ -7,7 +7,7 @@ function TaskCard({
 }) {
   return (
     <>
-      <article class="task-card" id={id}>
+      <article className="task-card" id={id}>
         <h3 className="task-card__title">{title}</h3>
       </article>
     </>

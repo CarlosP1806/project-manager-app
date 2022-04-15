@@ -1,0 +1,26 @@
+.task-column {
+    background-color: var(--light-color);
+    margin-right: 2rem;
+    width: 250px;
+    padding: 2rem 1rem;
+    border-radius: 5px;
+}
+
+.task-column__header {
+    display: flex;
+    margin-bottom: 3rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-column__title {
+    font-size: var(--small-font);
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.task-column__counter {
+    font-size: var(--small-font);
+    color: var(--main-color);
+    font-weight: 500;
+}

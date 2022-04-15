@@ -1,0 +1,7 @@
+.task-card {
+    background: white;
+    margin: 2rem 0;
+    padding: 1rem;
+    min-height: 100px;
+    border-radius: 10px;
+}

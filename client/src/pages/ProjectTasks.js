@@ -1,8 +1,10 @@
 import React from 'react';
+import './ProjectTasks.css';
+
 import TasksColumn from '../components/TasksColumn';
 
 function ProjectTasks() {
-  
+
   // TODO: Change this to fetch database
   const cards = [
     {
@@ -33,9 +35,11 @@ function ProjectTasks() {
         <header className="section__header">
           <h1 className="section__title">Board of Tasks</h1>
         </header>
-
-        <TasksColumn columnTitle="In Progress" cards={cards} />
-
+        <div className="tasks__column-container">
+          <TasksColumn columnTitle="In Progress" cards={cards} />
+          <TasksColumn columnTitle="In Progress" cards={cards} />
+          <TasksColumn columnTitle="In Progress" cards={cards} />
+        </div>
       </section>
     </>
   );

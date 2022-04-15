@@ -1,0 +1,10 @@
+.section--tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks__column-container {
+    margin-top: 2.5rem;
+    display: flex;
+    flex: 1;
+}
