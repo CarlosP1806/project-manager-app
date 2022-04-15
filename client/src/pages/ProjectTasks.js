@@ -9,24 +9,29 @@ function ProjectTasks() {
   const cards = [
     {
       id: "0001",
-      title: "Testing Issue 1"
+      category: "bug",
+      title: "Testing Issue 1",
+      postedBy: "CarlosP1806",
+      labels: ["urgent"]
     },
     {
       id: "0002",
-      title: "Testing Issue 2"
+      category: "feature",
+      title: "Testing Issue 2",
+      postedBy: "CarlosP1806"
     },
     {
       id: "0003",
-      title: "Testing Issue 3"
+      category: "warning",
+      title: "Testing Issue 3",
+      postedBy: "CarlosP1806"
     },
     {
       id: "0004",
-      title: "Testing Issue 4"
+      category: "other",
+      title: "Testing Issue 4",
+      postedBy: "CarlosP1806"
     },
-    {
-      id: "0005",
-      title: "Testing Issue 5"
-    }
   ];
 
   return (
@@ -37,8 +42,8 @@ function ProjectTasks() {
         </header>
         <div className="tasks__column-container">
           <TasksColumn columnTitle="In Progress" cards={cards} />
-          <TasksColumn columnTitle="In Progress" cards={cards} />
-          <TasksColumn columnTitle="In Progress" cards={cards} />
+          <TasksColumn columnTitle="Review" cards={cards} />
+          <TasksColumn columnTitle="Completed" cards={cards} />
         </div>
       </section>
     </>

@@ -11,12 +11,18 @@ function TasksColumn({
       <section className="task-column">
         <header className="task-column__header">
           <h2 className="task-column__title">{columnTitle}</h2>
-         <span className="task-column__counter">({cards.length})</span>
+          <span className="task-column__counter">({cards.length})</span>
         </header>
         <div className="task-column__cards">
           {cards.map(card => (
-            <TaskCard key={card.id} id={card.id} title={card.title}/>
-          ))} 
+            <TaskCard
+              key={card.id}
+              id={card.id}
+              category={card.category}
+              title={card.title}
+              postedBy={card.postedBy}
+              labels={card.labels} />
+          ))}
         </div>
       </section>
     </>

@@ -1,7 +1,64 @@
 .task-card {
     background: white;
     margin: 2rem 0;
-    padding: 1rem;
     min-height: 100px;
     border-radius: 10px;
+}
+
+.task-card__content {
+    padding: 1rem;
+}
+
+.task-card__header {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 1rem 0;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.4rem;
+}
+
+.task-card__title {
+    font-size: var(--small-font);
+    margin-bottom: .5rem;
+    font-weight: 500;
+}
+
+.task-card__author {
+    font-size: 1.4rem;
+    font-style: italic;
+}
+
+.task-card__header--red {
+    background: crimson;
+    color: white
+}
+
+.task-card__header--yellow {
+    background: rgb(255, 157, 10);
+    color: white;
+}
+
+.task-card__header--blue {
+    background: var(--main-color);
+    color: white;
+}
+
+.task-card__header--green {
+    background: green;
+    color: white;
+}
+
+.task-card__labels {
+    border-top: 2px solid #555;
+    padding: .2rem 0;
+    margin-top: 1rem;
+}
+
+.task-card__label {
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-top: .5rem;
+    padding: .2rem .5rem;
+    border: 1px solid black;
+    border-radius: 20px;
 }
