@@ -13,6 +13,8 @@ function ProjectView({
     switch(currentSection) {
       case "tasks":
         return <ProjectTasks />;
+      default:
+        return <ProjectTasks />;
     }
   }
 
