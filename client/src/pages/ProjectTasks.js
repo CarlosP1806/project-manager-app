@@ -2,6 +2,31 @@ import React from 'react';
 import TasksColumn from '../components/TasksColumn';
 
 function ProjectTasks() {
+  
+  // TODO: Change this to fetch database
+  const cards = [
+    {
+      id: "0001",
+      title: "Testing Issue 1"
+    },
+    {
+      id: "0002",
+      title: "Testing Issue 2"
+    },
+    {
+      id: "0003",
+      title: "Testing Issue 3"
+    },
+    {
+      id: "0004",
+      title: "Testing Issue 4"
+    },
+    {
+      id: "0005",
+      title: "Testing Issue 5"
+    }
+  ];
+
   return (
     <>
       <section className="section section--tasks">
@@ -9,7 +34,7 @@ function ProjectTasks() {
           <h1 className="section__title">Board of Tasks</h1>
         </header>
 
-        <TasksColumn columnTitle="In Progress"/>
+        <TasksColumn columnTitle="In Progress" cards={cards} />
 
       </section>
     </>
