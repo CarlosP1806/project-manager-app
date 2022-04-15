@@ -10,7 +10,7 @@ function AsideNavbar({
     <>
       <aside className="aside-navbar">
         <header className="aside-navbar__header">
-          <h1 className="aside-navbar__title">{projectName}</h1>
+          <h2 className="aside-navbar__title">{projectName}</h2>
           <p className="aside-navbar__subtitle">{profileOwnership}</p>
         </header>
         <ul className="aside-navbar__links">

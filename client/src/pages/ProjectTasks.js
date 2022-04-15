@@ -17,9 +17,13 @@ function ProjectTasks({
       <main className="main">
         <TopNavbar profileName="Carlos Paez" />
 
-        <section className="section section--taks">
-          Hello World
-        </section>
+        <div className="content-wrapper">
+          <section className="section section--tasks">
+            <header className="section__header">
+              <h1 className="section__title">Board of Tasks</h1>
+            </header>
+          </section>
+        </div>
       </main>
     </>
   );
