@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ProjectView currentSection="tasks" />} />
+            element={<ProjectView currentSection="overview" />} />
         </Routes>
       </>
     </Router>

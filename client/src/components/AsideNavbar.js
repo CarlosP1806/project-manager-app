@@ -4,7 +4,8 @@ import './AsideNavbar.css';
 function AsideNavbar({
   projectName,
   profileOwnership,
-  currentView
+  currentView,
+  switchView
 }) {
   return (
     <>
@@ -15,16 +16,16 @@ function AsideNavbar({
         </header>
         <ul className="aside-navbar__links">
           <li className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}>
-            <a>Overview</a>
+            <p onClick={() => switchView('overview')}>Overview</p>
           </li>
           <li className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}>
-            <a>Tasks</a>
+            <p onClick={() => switchView('tasks')}>Tasks</p>
           </li>
           <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
-            <a>Calendar</a>
+            <p>Calendar</p>
           </li>
           <li className={`aside-navbar__link ${currentView === 'settings' ? 'active' : ''}`}>
-            <a>Settings</a>
+            <p>Settings</p>
           </li>
         </ul>
       </aside>
