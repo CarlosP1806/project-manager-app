@@ -13,6 +13,7 @@ function ProjectTasks() {
       <section className="section section--tasks">
         <header className="section__header">
           <h1 className="section__title">Board of Tasks</h1>
+          <button className="tasks__add-btn">Add Task</button>
         </header>
         <div className="tasks__column-container">
           <TasksColumn columnTitle="request" cards={data.tasksIds} />
