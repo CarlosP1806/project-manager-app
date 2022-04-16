@@ -15,10 +15,10 @@ function ProjectTasks() {
           <h1 className="section__title">Board of Tasks</h1>
         </header>
         <div className="tasks__column-container">
-          <TasksColumn columnTitle="request" cards={data.tasksId} />
-          <TasksColumn columnTitle="in progress" cards={data.tasksId} />
-          <TasksColumn columnTitle="review" cards={data.tasksId} />
-          <TasksColumn columnTitle="completed" cards={data.tasksId} />
+          <TasksColumn columnTitle="request" cards={data.tasksIds} />
+          <TasksColumn columnTitle="in progress" cards={data.tasksIds} />
+          <TasksColumn columnTitle="review" cards={data.tasksIds} />
+          <TasksColumn columnTitle="completed" cards={data.tasksIds} />
         </div>
       </section>
     </>
