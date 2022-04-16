@@ -6,20 +6,14 @@ import AsideNavbar from '../components/AsideNavbar';
 import TopNavbar from '../components/TopNavbar';
 import ProjectOverview from './ProjectOverview';
 
+import { useProjectData } from '../context/projectContext';
+
 function ProjectView({
   currentSection
 }) {
   const [currentView, setCurrentView] = useState(currentSection);
 
-  useEffect(() => {
-    async function getProjectData() {
-      let response = await fetch('/project/625afbb0b7e6ef28cbf8767a');
-      response = await response.json();
-      console.log(response);
-    }
-
-    getProjectData();
-  }, []);
+  const { loading, data } = useProjectData(); 
 
   function getCurrentSection() {
     switch (currentView) {
@@ -34,6 +28,16 @@ function ProjectView({
   function handleSwitchView(newView) {
     setCurrentView(newView);
   }
+
+  if(loading) {
+    return (
+      <>
+        <p>Loading...</p>
+      </>
+    )
+  }
+
+  console.log(data);
 
   return (
     <>

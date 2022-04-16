@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 
 import ProjectView from './pages/ProjectView';
+import { ProjectDataProvider } from './context/projectContext';
 
 function App() {
   return (
@@ -11,7 +12,11 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ProjectView currentSection="overview" />} />
+            element={
+              <ProjectDataProvider>
+                <ProjectView currentSection="overview" />
+              </ProjectDataProvider>
+            } />
         </Routes>
       </>
     </Router>
