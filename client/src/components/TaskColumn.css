@@ -9,6 +9,7 @@
 .task-column__header {
     display: flex;
     margin-bottom: 3rem;
+    text-transform: capitalize;
     align-items: center;
     justify-content: space-between;
 }
