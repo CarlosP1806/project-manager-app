@@ -5,10 +5,10 @@ const projectSchema = new Schema({
     type: String,
     required: true
   },
-  tasks: {
-    type: String,
-    required: true
-  }
+  tasksId: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Tasks'
+  }]
 });
 
 const Project = model('Project', projectSchema);
