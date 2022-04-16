@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 // Get a project by id
 router.get('/:id', async (req, res) => {
   try {
-    const project = await Project.findOne({ _id: req.params.id }).populate('tasksId');
+    const project = await Project.findOne({ _id: req.params.id }).populate('tasksIds');
     if (!project) {
       res.status(404).json({ message: "unable to find project" });
       return;
@@ -44,7 +44,7 @@ router.post('/task', async (req, res) => {
     // Add task to corresponding project
     const correspondingProject = await Project.findOneAndUpdate(
       { _id: newTask.projectId },
-      {$push: { "tasksId": newTask._id }});
+      {$push: { "tasksIds": newTask._id }});
     if (!correspondingProject) {
       res.status(500).json({ message: "invalid project id" });
     }

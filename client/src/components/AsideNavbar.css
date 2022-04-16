@@ -54,7 +54,7 @@
     background-color: var(--secondary-color);
 }
 
-.aside-navbar__link p {
+.aside-navbar__link a {
     font-size: var(--med-font);
 }
 
