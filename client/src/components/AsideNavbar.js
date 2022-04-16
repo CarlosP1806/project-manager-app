@@ -15,11 +15,15 @@ function AsideNavbar({
           <p className="aside-navbar__subtitle">{profileOwnership}</p>
         </header>
         <ul className="aside-navbar__links">
-          <li className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}>
-            <p onClick={() => switchView('overview')}>Overview</p>
+          <li
+            className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}
+            onClick={() => switchView('overview')}>
+            <p>Overview</p>
           </li>
-          <li className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}>
-            <p onClick={() => switchView('tasks')}>Tasks</p>
+          <li
+            className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}
+            onClick={() => switchView('tasks')}>
+            <p>Tasks</p>
           </li>
           <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
             <p>Calendar</p>
