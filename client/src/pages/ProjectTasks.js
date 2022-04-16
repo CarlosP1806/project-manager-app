@@ -50,41 +50,6 @@ function ProjectTasks() {
       status: "request",
       postedBy: "CarlosP1806"
     },
-    {
-      id: "0006",
-      category: "feature",
-      title: "Testing Issue 6",
-      status: "request",
-      postedBy: "CarlosP1806"
-    },
-    {
-      id: "0006",
-      category: "feature",
-      title: "Testing Issue 6",
-      status: "request",
-      postedBy: "CarlosP1806"
-    },
-    {
-      id: "0006",
-      category: "feature",
-      title: "Testing Issue 6",
-      status: "request",
-      postedBy: "CarlosP1806"
-    },
-    {
-      id: "0006",
-      category: "feature",
-      title: "Testing Issue 6",
-      status: "request",
-      postedBy: "CarlosP1806"
-    },
-    {
-      id: "0006",
-      category: "feature",
-      title: "Testing Issue 6",
-      status: "request",
-      postedBy: "CarlosP1806"
-    },
   ];
 
   return (
