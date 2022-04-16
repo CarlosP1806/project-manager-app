@@ -11,7 +11,6 @@ function ProjectView({
 }) {
   const [currentView, setCurrentView] = useState(currentSection);
 
-
   useEffect(() => {
     async function getProjectData() {
       let response = await fetch('/project/625afbb0b7e6ef28cbf8767a');

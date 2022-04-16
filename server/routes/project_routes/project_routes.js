@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 // Get a project by id
 router.get('/:id', async (req, res) => {
   try {
-    const project = await Project.find({ _id: req.params.id });
+    const project = await Project.findOne({ _id: req.params.id }).populate('tasksId');
     if (!project) {
       res.status(404).json({ message: "unable to find project" });
       return;
