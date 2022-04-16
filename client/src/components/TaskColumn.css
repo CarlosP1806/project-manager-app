@@ -38,3 +38,11 @@
     color: var(--main-color);
     font-weight: 500;
 }
+
+@media screen and (max-width: 600px) {
+    .task-column {
+        margin-right: 0;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+}

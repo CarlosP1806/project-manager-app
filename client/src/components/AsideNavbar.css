@@ -57,3 +57,9 @@
 .aside-navbar__link a {
     font-size: var(--med-font);
 }
+
+@media screen and (max-width: 768px) {
+    .aside-navbar {
+        width: 0;
+    }
+}

@@ -39,3 +39,10 @@ main {
     left: 0;
     bottom: -5px;
 }
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+        left: 0;
+    }
+}

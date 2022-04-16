@@ -11,3 +11,16 @@
     font-size: var(--tiny-font);
     font-weight: normal;
 }
+
+@media screen and (max-width: 600px) {
+    .top-navbar {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .top-navbar__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
