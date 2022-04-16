@@ -30,7 +30,7 @@ function TaskCard({
         <div className="task-card__content">
           <h3 className="task-card__title">{title}</h3>
           <p className="task-card__author">Issued by: {postedBy}</p>
-          {labels && (
+          {labels.length > 0 && (
             <div className="task-card__labels">
               {labels.map(label => (
                 <span key={Date.now()} className="task-card__label">{label}</span>

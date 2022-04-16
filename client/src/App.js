@@ -7,19 +7,20 @@ import { ProjectDataProvider } from './context/projectContext';
 
 function App() {
   return (
-    <Router>
-      <>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProjectDataProvider>
-                <ProjectView currentSection="overview" />
-              </ProjectDataProvider>
-            } />
-        </Routes>
-      </>
-    </Router>
+    <ProjectDataProvider>
+      <Router>
+        <>
+          <Routes>
+            <Route
+              path="/project/:id/overview"
+              element={<ProjectView currentSection="overview" />} />
+            <Route
+              path="/project/:id/tasks"
+              element={<ProjectView currentSection="tasks" />} />
+          </Routes>
+        </>
+      </Router>
+    </ProjectDataProvider>
   );
 }
 

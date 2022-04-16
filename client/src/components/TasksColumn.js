@@ -19,11 +19,11 @@ function TasksColumn({
         <div className="task-column__cards">
           {columnCards.map(card => (
             <TaskCard
-              key={card.id}
-              id={card.id}
+              key={card._id}
+              id={card._id}
               category={card.category}
               title={card.title}
-              postedBy={card.postedBy}
+              postedBy={card.author}
               labels={card.labels} />
           ))}
         </div>

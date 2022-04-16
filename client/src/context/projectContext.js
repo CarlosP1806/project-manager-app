@@ -7,24 +7,26 @@ export function useProjectData() {
 }
 
 export const ProjectDataProvider = ({ children }) => {
-
+  const [projectId, setProjectId] = useState();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     setLoading(true);
-    let response = await fetch('/project/625afbb0b7e6ef28cbf8767a');
+    let response = await fetch(`/project/${projectId}`);
     response = await response.json();
     setData(response);
     setLoading(false);
   };
 
   useEffect(() => {
-    getData()
-  }, []);
+    if (projectId) {
+      getData()
+    }
+  }, [projectId]);
 
   return (
-    <ProjectDataContext.Provider value={{loading, data}}>
+    <ProjectDataContext.Provider value={{ setProjectId, loading, data }}>
       {children}
     </ProjectDataContext.Provider>
   );

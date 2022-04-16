@@ -7,13 +7,19 @@ import TopNavbar from '../components/TopNavbar';
 import ProjectOverview from './ProjectOverview';
 
 import { useProjectData } from '../context/projectContext';
+import { useParams } from 'react-router-dom';
 
 function ProjectView({
   currentSection
 }) {
   const [currentView, setCurrentView] = useState(currentSection);
+  const { setProjectId, loading } = useProjectData();
 
-  const { loading, data } = useProjectData(); 
+  // Get project id to fetch context data
+  const { id } = useParams();
+  useEffect(() => {
+    setProjectId(id);
+  }, []);
 
   function getCurrentSection() {
     switch (currentView) {
@@ -29,15 +35,13 @@ function ProjectView({
     setCurrentView(newView);
   }
 
-  if(loading) {
+  if (loading) {
     return (
       <>
         <p>Loading...</p>
       </>
     )
   }
-
-  console.log(data);
 
   return (
     <>
