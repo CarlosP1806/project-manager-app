@@ -1,19 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import './ProjectTasks.css';
 
 import TasksColumn from '../components/TasksColumn';
 import { useProjectData } from '../context/projectContext';
+import AddTaskModal from '../components/AddTaskModal';
 
 function ProjectTasks() {
-
   const { data } = useProjectData();
+  const [showAddTaskModal, setShowAddTaskModal] = useState(false);
 
   return (
     <>
       <section className="section section--tasks">
         <header className="section__header">
           <h1 className="section__title">Board of Tasks</h1>
-          <button className="tasks__add-btn">Add Task</button>
+          <button
+            className="tasks__add-btn"
+            onClick={() => setShowAddTaskModal(true)}>
+            Add Task
+          </button>
         </header>
         <div className="tasks__column-container">
           <TasksColumn columnTitle="request" cards={data.tasksIds} />
@@ -22,6 +27,10 @@ function ProjectTasks() {
           <TasksColumn columnTitle="completed" cards={data.tasksIds} />
         </div>
       </section>
+
+      {showAddTaskModal && (
+        <AddTaskModal onClose={() => setShowAddTaskModal(false)}/>
+      )}
     </>
   );
 }
