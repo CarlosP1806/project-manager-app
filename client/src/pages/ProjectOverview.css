@@ -1,0 +1,36 @@
+.section--overview {
+    display: flex;
+    flex-direction: column;
+}
+
+.overview__container {
+    margin-top: 3.5rem;
+    flex: 1;
+    display: flex;
+}
+
+.overview__left, .overview__right {
+    flex: 1;
+}
+
+.overview__left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+}
+
+.overview__description, .overview__members {
+    flex: 1;
+}
+
+.overview__header {
+    color: var(--main-color);
+    font-weight: 500;
+    font-size: var(--med-font);
+    margin-bottom: 1rem;
+}
+
+.overview__text {
+    font-size: var(--tiny-font);
+    line-height: 1.6;
+}

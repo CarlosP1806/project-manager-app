@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProjectTasks from './pages/ProjectTasks';
+import './index.css'
+
+import ProjectView from './pages/ProjectView';
 
 function App() {
   return (
@@ -9,7 +11,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<ProjectTasks projectName="Test Project" profileOwnership="Owner"/>} />
+            element={<ProjectView currentSection="overview" />} />
         </Routes>
       </>
     </Router>

@@ -1,0 +1,18 @@
+.section--tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks__column-container {
+    margin-top: 2.5rem;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+    .tasks__column-container {
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
