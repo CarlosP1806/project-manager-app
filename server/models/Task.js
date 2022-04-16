@@ -23,8 +23,7 @@ const taskSchema = new Schema({
     required: true
   },
   labels: [{
-    type: String,
-    default: null
+    type: String
   }]
 });
 

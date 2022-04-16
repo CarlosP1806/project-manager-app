@@ -1,5 +1,6 @@
 import React from 'react'
 import './AsideNavbar.css';
+import { useParams } from 'react-router-dom';
 
 function AsideNavbar({
   projectName,
@@ -7,6 +8,8 @@ function AsideNavbar({
   currentView,
   switchView
 }) {
+  const { id } = useParams();
+
   return (
     <>
       <aside className="aside-navbar">
@@ -18,18 +21,18 @@ function AsideNavbar({
           <li
             className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}
             onClick={() => switchView('overview')}>
-            <p>Overview</p>
+            <a href={`/project/${id}/overview`}>Overview</a>
           </li>
           <li
             className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}
             onClick={() => switchView('tasks')}>
-            <p>Tasks</p>
+            <a href={`/project/${id}/tasks`}>Tasks</a>
           </li>
           <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
-            <p>Calendar</p>
+            <a>Calendar</a>
           </li>
           <li className={`aside-navbar__link ${currentView === 'settings' ? 'active' : ''}`}>
-            <p>Settings</p>
+            <a>Settings</a>
           </li>
         </ul>
       </aside>
