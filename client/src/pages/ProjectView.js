@@ -31,10 +31,6 @@ function ProjectView({
     }
   }
 
-  function handleSwitchView(newView) {
-    setCurrentView(newView);
-  }
-
   if (loading) {
     return (
       <>
@@ -48,8 +44,7 @@ function ProjectView({
       <AsideNavbar
         projectName="Test Project"
         profileOwnership="Owner"
-        currentView={currentView}
-        switchView={handleSwitchView} />
+        currentView={currentView} />
 
       <main className="main">
         <TopNavbar profileName="Carlos Paez" />

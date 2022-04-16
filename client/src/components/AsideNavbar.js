@@ -6,7 +6,6 @@ function AsideNavbar({
   projectName,
   profileOwnership,
   currentView,
-  switchView
 }) {
   const { id } = useParams();
 
@@ -19,13 +18,11 @@ function AsideNavbar({
         </header>
         <ul className="aside-navbar__links">
           <li
-            className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}
-            onClick={() => switchView('overview')}>
+            className={`aside-navbar__link ${currentView === 'overview' ? 'active' : ''}`}>
             <a href={`/project/${id}/overview`}>Overview</a>
           </li>
           <li
-            className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}
-            onClick={() => switchView('tasks')}>
+            className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}>
             <a href={`/project/${id}/tasks`}>Tasks</a>
           </li>
           <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
