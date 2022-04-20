@@ -19,6 +19,14 @@ const taskSchema = new Schema({
     required: true,
     default: Date.now()
   },
+  dueDays: {
+    type: Number,
+    required: true 
+  },
+  description: {
+    type: String,
+    required: true
+  },
   status: {
     type: String,
     required: true

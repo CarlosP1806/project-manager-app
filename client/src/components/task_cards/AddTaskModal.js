@@ -12,7 +12,9 @@ function AddTaskModal({
     author: "CarlosP18", // TODO: Change author when auth API is created
     category: "",
     status: "",
-    projectId: id
+    projectId: id,
+    description: "",
+    dueDays: ""
   });
 
   function handleInputChange(e) {
@@ -52,7 +54,7 @@ function AddTaskModal({
         <div className="add-task-modal__content">
           <form className="form add-add-task__form" onSubmit={handleFormSubmit}>
             <div className="form__row">
-              <div className="form__label" htmlFor="title">Task Title:</div>
+              <label className="form__label" htmlFor="title">Task Title:</label>
               <input
                 required
                 className="form__input"
@@ -62,7 +64,17 @@ function AddTaskModal({
                 onChange={handleInputChange} />
             </div>
             <div className="form__row">
-              <div className="form__label" htmlFor="category">Category:</div>
+              <label className="form__label" htmlFor="description">Brief Description:</label>
+              <textarea
+                required
+                className="form__input"
+                id="description"
+                name="description"
+                rows="3"
+                onChange={handleInputChange} />
+            </div>
+            <div className="form__row">
+              <label className="form__label" htmlFor="category">Category:</label>
               <select
                 className="form__input"
                 onChange={handleInputChange}
@@ -76,7 +88,7 @@ function AddTaskModal({
               </select>
             </div>
             <div className="form__row">
-              <div className="form__label" htmlFor="status">Status:</div>
+              <label className="form__label" htmlFor="status">Status:</label>
               <select
                 className="form__input"
                 onChange={handleInputChange}
@@ -88,6 +100,18 @@ function AddTaskModal({
                 <option value="review">Review</option>
                 <option value="completed">Completed</option>
               </select>
+            </div>
+            <div className="form__row">
+              <label className="form__label" htmlFor="dueDays">Expected Time (Days):</label>
+              <input
+                required
+                className="form__input form__input--small"
+                type="number"
+                id="dueDays"
+                name="dueDays"
+                min="1"
+                max="50"
+                onChange={handleInputChange} />
             </div>
             <button className="form__btn">Submit!</button>
           </form>

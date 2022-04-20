@@ -52,7 +52,13 @@ a {
 .form__input {
   font-size: 1.6rem;
   padding: .2rem .1rem;
+  resize: none;
 }
+
+.form__input--small {
+  width: 20%;
+}
+
 
 .form option {
   font-size: 1.6rem;
