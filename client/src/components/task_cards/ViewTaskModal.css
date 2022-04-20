@@ -61,16 +61,32 @@
 .view-task-modal__name {
     color: var(--main-color);
     font-size: var(--med-font);
+    margin-bottom: .5rem;
+}
+
+.view-task-modal__due {
+    font-size: 1.4rem;
     margin-bottom: 1rem;
+    font-style: italic;
 }
 
 .view-task-modal__section {
     margin: 1rem 0;
 }
 
+.view-task-modal__description {
+    font-size: var(--tiny-font);
+    line-height: 1.6;
+}
+
+.view-task-modal__message {
+    font-size: var(--tiny-font);
+}
+
 .view-task-modal__title {
     color: var(--main-color);
     font-size: var(--small-font);
+    margin-bottom: .5rem;
 }
 
 .view-task-modal__actions {

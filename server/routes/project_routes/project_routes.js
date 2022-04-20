@@ -56,6 +56,23 @@ router.post('/task', async (req, res) => {
   }
 });
 
+// Update task with given id
+router.put('/task', async (req, res) => {
+  try {
+    const updatedTask = await Task.findOneAndUpdate(
+      { _id: req.body._id },
+      req.body
+    );
+    if (!updatedTask) {
+      res.status(404).json({ message: "cannot find task" });
+      return;
+    }
+    res.status(200).json(updatedTask);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 // Delete task with given id
 router.delete('/task/:id', async (req, res) => {
   try {
@@ -74,7 +91,7 @@ router.delete('/task/:id', async (req, res) => {
       return;
     }
     res.status(200).json(deletedTask);
-  
+
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: err });
