@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './ProjectTasks.css';
 
-import TasksColumn from '../components/TasksColumn';
-import { useProjectData } from '../context/projectContext';
-import AddTaskModal from '../components/AddTaskModal';
+import TasksColumn from '../../components/task_cards/TasksColumn';
+import { useProjectData } from '../../context/projectContext';
+import AddTaskModal from '../../components/task_cards/AddTaskModal';
 
 function ProjectTasks() {
   const { data } = useProjectData();
@@ -21,10 +21,10 @@ function ProjectTasks() {
           </button>
         </header>
         <div className="tasks__column-container">
-          <TasksColumn columnTitle="request" cards={data.tasksIds} />
-          <TasksColumn columnTitle="in progress" cards={data.tasksIds} />
-          <TasksColumn columnTitle="review" cards={data.tasksIds} />
-          <TasksColumn columnTitle="completed" cards={data.tasksIds} />
+          <TasksColumn columnTitle="request" cards={data.tasks} />
+          <TasksColumn columnTitle="in progress" cards={data.tasks} />
+          <TasksColumn columnTitle="review" cards={data.tasks} />
+          <TasksColumn columnTitle="completed" cards={data.tasks} />
         </div>
       </section>
 

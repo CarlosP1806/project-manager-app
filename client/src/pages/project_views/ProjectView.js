@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './ProjectView.css';
 
 import ProjectTasks from './ProjectTasks';
-import AsideNavbar from '../components/AsideNavbar';
-import TopNavbar from '../components/TopNavbar';
-import ProjectOverview from './ProjectOverview';
+import AsideNavbar from '../../components/navbars/AsideNavbar';
+import TopNavbar from '../../components/navbars/TopNavbar';
+import ProjectSummary from './ProjectSummary';
 
-import { useProjectData } from '../context/projectContext';
+import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
 
 function ProjectView({
@@ -27,12 +27,13 @@ function ProjectView({
         return <ProjectTasks />;
       case "overview":
       default:
-        return <ProjectOverview />;
+        return <ProjectSummary />;
     }
   }
 
   if (loading) {
     return (
+      // TODO: ADD LOADING COMPONENT
       <>
         <p>Loading...</p>
       </>
