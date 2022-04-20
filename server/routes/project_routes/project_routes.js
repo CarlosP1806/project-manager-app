@@ -44,11 +44,37 @@ router.post('/task', async (req, res) => {
     // Add task to corresponding project
     const correspondingProject = await Project.findOneAndUpdate(
       { _id: newTask.projectId },
-      {$push: { "tasks": newTask._id }});
+      { $push: { "tasks": newTask._id } });
     if (!correspondingProject) {
       res.status(500).json({ message: "invalid project id" });
+      return;
     }
     res.status(200).json(newTask);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err });
+  }
+});
+
+// Delete task with given id
+router.delete('/task/:id', async (req, res) => {
+  try {
+    const deletedTask = await Task.findOneAndDelete({ _id: req.params.id });
+    if (!deletedTask) {
+      res.status(404).json({ message: "no task found" });
+      return;
+    }
+    // Remove task from corresponding project
+    const correspondingProject = await Project.findOneAndUpdate(
+      { _id: deletedTask.projectId },
+      { $pull: { "tasks": deletedTask._id } }
+    );
+    if (!correspondingProject) {
+      res.status(500).json({ message: "invalid project id" });
+      return;
+    }
+    res.status(200).json(deletedTask);
+  
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: err });

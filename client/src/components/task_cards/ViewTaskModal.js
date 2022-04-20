@@ -21,6 +21,20 @@ function ViewTaskModal({ taskId, onClose }) {
     }
   }
 
+  // Handle task delete
+  async function onDeleteTask() {
+    const response = await fetch(`/project/task/${currentTask._id}`, {
+      method: 'DELETE',
+    });
+
+    if(!response.ok) {
+      alert("Something went wrong");
+    } else {
+      onClose();
+      window.location.reload();
+    }
+  }
+
   return (
     <>
       <article className="view-task-modal">
@@ -40,7 +54,7 @@ function ViewTaskModal({ taskId, onClose }) {
           </div>
           <aside className="view-task-modal__actions">
             <button className="view-task-modal__next">Mark as ...</button>
-            <button className="view-task-modal__delete">Delete</button>
+            <button className="view-task-modal__delete" onClick={onDeleteTask}>Delete</button>
           </aside>
         </div>
       </article>
