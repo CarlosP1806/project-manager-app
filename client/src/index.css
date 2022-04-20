@@ -30,7 +30,45 @@ html, body, #root {
   --aside-nav-width: 15%;
 }
 
+/* ===== Text styles ===== */
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* ===== Form styles ===== */
+.form__row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0;
+}
+
+.form__label {
+  margin-bottom: .5rem;
+  font-size: var(--tiny-font);
+}
+
+.form__input {
+  font-size: 1.6rem;
+  padding: .2rem .1rem;
+}
+
+.form option {
+  font-size: 1.6rem;
+}
+
+.form__btn {
+  padding: 1rem 2rem;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+}
+
+.form__btn:hover {
+  background-color: var(--secondary-color);
 }

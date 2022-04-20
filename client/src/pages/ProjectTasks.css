@@ -3,11 +3,32 @@
     flex-direction: column;
 }
 
+.section__header {
+    display: flex;
+    align-items: center;
+}
+
 .tasks__column-container {
     margin-top: 2.5rem;
     display: flex;
     flex: 1;
     justify-content: center;
+}
+
+.tasks__add-btn {
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.tasks__add-btn:hover {
+    background-color: var(--secondary-color);
 }
 
 @media screen and (max-width: 600px) {
