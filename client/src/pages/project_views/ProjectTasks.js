@@ -4,10 +4,12 @@ import './ProjectTasks.css';
 import TasksColumn from '../../components/task_cards/TasksColumn';
 import { useProjectData } from '../../context/projectContext';
 import AddTaskModal from '../../components/task_cards/AddTaskModal';
+import ViewTaskModal from '../../components/task_cards/ViewTaskModal';
 
 function ProjectTasks() {
   const { data } = useProjectData();
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
+  const [currentModal, setCurrentModal] = useState();
 
   return (
     <>
@@ -21,16 +23,33 @@ function ProjectTasks() {
           </button>
         </header>
         <div className="tasks__column-container">
-          <TasksColumn columnTitle="request" cards={data.tasks} />
-          <TasksColumn columnTitle="in progress" cards={data.tasks} />
-          <TasksColumn columnTitle="review" cards={data.tasks} />
-          <TasksColumn columnTitle="completed" cards={data.tasks} />
+          <TasksColumn
+            columnTitle="request"
+            cards={data.tasks}
+            setViewModal={setCurrentModal} />
+          <TasksColumn
+            columnTitle="in progress"
+            cards={data.tasks}
+            setViewModal={setCurrentModal} />
+          <TasksColumn
+            columnTitle="review"
+            cards={data.tasks}
+            setViewModal={setCurrentModal} />
+          <TasksColumn
+            columnTitle="completed"
+            cards={data.tasks}
+            setViewModal={setCurrentModal} />
         </div>
       </section>
 
       {showAddTaskModal && (
-        <AddTaskModal onClose={() => setShowAddTaskModal(false)}/>
+        <AddTaskModal onClose={() => setShowAddTaskModal(false)} />
       )}
+
+      {currentModal && (
+        <ViewTaskModal taskId={currentModal} onClose={() => setCurrentModal()}/>
+      )}
+
     </>
   );
 }
