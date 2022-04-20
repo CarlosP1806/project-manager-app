@@ -20,6 +20,7 @@
 
 .add-task-modal__title {
     font-size: var(--small-font);
+    color: var(--main-color);
 }
 
 .add-task-modal__close {
