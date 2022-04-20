@@ -1,8 +1,9 @@
 const router = require('express').Router();
+const { authMiddleware, signToken } = require('../../utils/auth');
 const User = require('../../models/User');
 
 // Get current user using middleware
-router.get('/me', async ({ user = null, params }, res) => {
+router.get('/me', authMiddleware, async ({ user = null, params }, res) => {
   try {
     const foundUser = await User.findOne({
       $or: [{ _id: user ? user._id : params.id }, { username: params.username }]
@@ -25,7 +26,7 @@ router.post('/', async (req, res) => {
       res.status(500).json({ message: "something went wrong" });
       return;
     }
-    const token = null;
+    const token = signToken(user);
     res.json({ token, user });
   } catch (err) {
     res.status(500).json({ message: err });
@@ -48,7 +49,7 @@ router.post('/login', async (req, res) => {
       res.status(500).json({ message: "invalid credentials" });
       return;
     }
-    const token = null;
+    const token = signToken(user);
     res.json({ token, user });
   } catch (err) {
     res.status(500).json({ message: err });
