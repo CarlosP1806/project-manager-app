@@ -1,0 +1,126 @@
+.view-task-modal {
+    background-color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.view-task-modal__header {
+    background-color: var(--main-color);
+    padding: 2rem;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.view-task-modal__header--red {
+    background-color: crimson;
+}
+
+.view-task-modal__header--yellow {
+    background: rgb(255, 157, 10);
+}
+
+.view-task-modal__header--blue {
+    background: var(--main-color);
+}
+
+.view-task-modal__header--green {
+    background: green;
+}
+
+.view-task-modal__close {
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.view-task-modal__content {
+    padding: 2rem;
+    display: flex;
+}
+
+.view-task-modal__left {
+    flex: 1;
+}
+
+.view-task-modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.view-task-modal__name {
+    color: var(--main-color);
+    font-size: var(--med-font);
+    margin-bottom: .5rem;
+}
+
+.view-task-modal__due {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.view-task-modal__section {
+    margin: 1rem 0;
+}
+
+.view-task-modal__description {
+    font-size: var(--tiny-font);
+    line-height: 1.6;
+}
+
+.view-task-modal__message {
+    font-size: var(--tiny-font);
+}
+
+.view-task-modal__title {
+    color: var(--main-color);
+    font-size: var(--small-font);
+    margin-bottom: .5rem;
+}
+
+.view-task-modal__actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-task-modal__next {
+    background-color: var(--main-color);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+.view-task-modal__next:hover {
+    background-color: var(--secondary-color);
+}
+
+.view-task-modal__delete {
+    background: none;
+    font-size: 1.4rem;
+    padding: .8rem 2rem;
+    border-radius: 5px;
+    border: 2px solid crimson;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.view-task-modal__delete:hover {
+    background-color: crimson;
+    color: white;
+}

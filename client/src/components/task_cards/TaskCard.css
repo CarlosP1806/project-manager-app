@@ -3,6 +3,7 @@
     margin: 2rem 0;
     min-height: 100px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .task-card__content {

@@ -4,10 +4,14 @@ import TaskCard from './TaskCard';
 
 function TasksColumn({
   columnTitle,
-  cards
+  cards,
+  setViewModal
 }) {
 
   const columnCards = cards.filter(card => card.status === columnTitle);
+  function handleCardClick(event) {
+    setViewModal(event.target.closest(".task-card").id);
+  }
 
   return (
     <>
@@ -16,7 +20,7 @@ function TasksColumn({
           <h2 className="task-column__title">{columnTitle}</h2>
           <span className="task-column__counter">({columnCards.length})</span>
         </header>
-        <div className="task-column__cards">
+        <div onClick={handleCardClick} className="task-column__cards">
           {columnCards.map(card => (
             <TaskCard
               key={card._id}
