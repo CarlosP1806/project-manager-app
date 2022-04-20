@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 
 import ProjectView from './pages/project_views/ProjectView';
+import LoginView from './pages/profile_views/LoginView';
 import { ProjectDataProvider } from './context/projectContext';
 
 function App() {
@@ -11,6 +12,9 @@ function App() {
       <Router>
         <>
           <Routes>
+            <Route
+              path="/"
+              element={<LoginView />} />
             <Route
               path="/project/:id/overview"
               element={<ProjectView currentSection="overview" />} />
