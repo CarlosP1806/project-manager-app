@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 
-import ProjectView from './pages/ProjectView';
+import ProjectView from './pages/project_views/ProjectView';
 import { ProjectDataProvider } from './context/projectContext';
 
 function App() {

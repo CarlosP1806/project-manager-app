@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './ProjectTasks.css';
 
-import TasksColumn from '../components/TasksColumn';
-import { useProjectData } from '../context/projectContext';
-import AddTaskModal from '../components/AddTaskModal';
+import TasksColumn from '../../components/task_cards/TasksColumn';
+import { useProjectData } from '../../context/projectContext';
+import AddTaskModal from '../../components/task_cards/AddTaskModal';
 
 function ProjectTasks() {
   const { data } = useProjectData();
