@@ -26,7 +26,6 @@ function ViewTaskModal({ taskId, onClose }) {
     const response = await fetch(`/project/task/${currentTask._id}`, {
       method: 'DELETE',
     });
-
     if(!response.ok) {
       alert("Something went wrong");
     } else {

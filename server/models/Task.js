@@ -14,6 +14,11 @@ const taskSchema = new Schema({
     type: String,
     required: true
   },
+  createdAt: {
+    type: Date,
+    required: true,
+    default: Date.now()
+  },
   status: {
     type: String,
     required: true
@@ -24,6 +29,10 @@ const taskSchema = new Schema({
   },
   labels: [{
     type: String
+  }],
+  comments: [{
+    author: String,
+    content: String
   }]
 });
 
