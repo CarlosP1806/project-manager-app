@@ -4,7 +4,7 @@ import './ProjectView.css';
 import ProjectTasks from './ProjectTasks';
 import AsideNavbar from '../../components/navbars/AsideNavbar';
 import TopNavbar from '../../components/navbars/TopNavbar';
-import ProjectOverview from './ProjectOverview';
+import ProjectSummary from './ProjectSummary';
 
 import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
@@ -27,7 +27,7 @@ function ProjectView({
         return <ProjectTasks />;
       case "overview":
       default:
-        return <ProjectOverview />;
+        return <ProjectSummary />;
     }
   }
 
