@@ -42,6 +42,11 @@
 
 .view-task-modal__content {
     padding: 2rem;
+    display: flex;
+}
+
+.view-task-modal__left {
+    flex: 1;
 }
 
 .view-task-modal__overlay {
@@ -66,4 +71,40 @@
 .view-task-modal__title {
     color: var(--main-color);
     font-size: var(--small-font);
+}
+
+.view-task-modal__actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.view-task-modal__next {
+    background-color: var(--main-color);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+.view-task-modal__next:hover {
+    background-color: var(--secondary-color);
+}
+
+.view-task-modal__delete {
+    background: none;
+    font-size: 1.4rem;
+    padding: .8rem 2rem;
+    border-radius: 5px;
+    border: 2px solid crimson;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.view-task-modal__delete:hover {
+    background-color: crimson;
+    color: white;
 }
