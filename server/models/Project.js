@@ -5,7 +5,7 @@ const projectSchema = new Schema({
     type: String,
     required: true
   },
-  tasksIds: [{
+  tasks: [{
     type: Schema.Types.ObjectId,
     ref: 'Task'
   }]

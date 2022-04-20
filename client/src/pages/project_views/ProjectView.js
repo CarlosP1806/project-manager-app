@@ -33,6 +33,7 @@ function ProjectView({
 
   if (loading) {
     return (
+      // TODO: ADD LOADING COMPONENT
       <>
         <p>Loading...</p>
       </>
