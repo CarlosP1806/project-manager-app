@@ -1,0 +1,76 @@
+.auth-form-view {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--light-color);
+}
+
+.auth-form-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 50vh;
+    border-radius: 10px;
+    background-color: white;
+    width: 80%;
+    max-width: 450px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.auth-form__header {
+    margin-bottom: 2rem;
+    background-color: var(--main-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.auth-form__title {
+    color: white;
+    font-size: var(--med-font);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.auth-form__buttons {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-form__button {
+    flex: 1;
+    text-align: center;
+    font-size: var(--tiny-font);
+    cursor: pointer;
+    padding: 1rem 0;
+    transition: .3s ease-in-out;
+}
+
+.auth-form__button:hover {
+    background-color: var(--secondary-color);
+}
+
+.auth-form__button.active {
+    background-color: var(--secondary-color);
+}
+
+.auth-form__content {
+    padding: 0 2rem;
+}
+
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.login-form .form__btn,
+.sign-form .form__btn {
+    padding: 1.2rem 4rem;
+}
