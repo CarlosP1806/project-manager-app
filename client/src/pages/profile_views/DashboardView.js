@@ -41,6 +41,7 @@ function DashboardView() {
     return <>Loading...</>
   }
 
+
   return (
     <>
       <main className="main main--full">
@@ -56,16 +57,9 @@ function DashboardView() {
           <div className="dashboard__right">
             <h1 className="dashboard__title">Your Projects</h1>
             <div className="dashboard__projects">
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
+              {userData.projects.map(project => (
+                <ProjectCard key={project._id} id={project._id} title={project.title}/>
+              ))}
             </div>
           </div>
         </section>
