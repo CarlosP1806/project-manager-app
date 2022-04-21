@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { createUser, getMe } from '../../utils/auth_api';
+import { createUser, loginUser } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
 import './LoginView.css';
 
@@ -49,6 +49,21 @@ function LoginView() {
     }
   }
 
+  async function handleLogin(event) {
+    event.preventDefault();
+    try {
+      const response = await loginUser(loginFormInput);
+      if(!response.ok) {
+        throw new Error('something went wrong');
+      }
+      const { token, user } = await response.json();
+      console.log(user);
+      Auth.login(token);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
   return (
     <>
       <main className="auth-form-view">
@@ -70,7 +85,7 @@ function LoginView() {
           </header>
           <div className="auth-form__content">
             {inputFromLogin ? (<>
-              <form className="login-form">
+              <form className="login-form" onSubmit={handleLogin}>
                 <div className="form__row">
                   <label className="form__label" htmlFor="username">Username:</label>
                   <input
