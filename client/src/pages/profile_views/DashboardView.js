@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { getMe } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
+import TopNavbar from '../../components/navbars/TopNavbar';
+import './DashboardView.css'
 
 function DashboardView() {
 
   const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
 
+  // Get current user data
   useEffect(() => {
     const getUserData = async () => {
       try {
@@ -27,19 +30,35 @@ function DashboardView() {
     };
     getUserData();
   }, []);
-  
+
   if (!Auth.loggedIn()) {
     window.location.assign("/");
     return;
   }
 
-  if(loading) {
+  if (loading) {
     return <>Loading...</>
   }
 
   return (
     <>
-      <div>Hello, {userData.username}</div>
+      <main className="main main--full">
+        <TopNavbar profileName={userData.username}/>
+
+        <section className="dashboard">
+          <div className="dashboard__left">
+            <h1 className="dashboard__username">{userData.username}</h1>
+            <p className="dashboard__email">{userData.email}</p>
+
+            <p>Notifications go here</p>
+          </div>
+          <div className="dashboard__right">
+            <div className="dashboard__projects">
+              Project 1
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   )
 }

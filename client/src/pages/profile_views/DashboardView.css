@@ -1,0 +1,39 @@
+.main--full {
+    left: 0;
+    width: 100%;
+    background-color: var(--light-color);
+}
+
+.dashboard {
+    width: 80%;
+    margin: 5rem auto;
+    padding: 5rem;
+    border-radius: 5px;
+    background-color: white;
+    flex: 1;
+    display: flex;
+}
+
+.dashboard__right {
+    flex: 1;
+    border-left: 3px solid var(--main-color);
+    padding-left: 2rem;
+}
+
+.dashboard__left {
+    padding-right: 2rem;
+}
+
+.dashboard__username {
+    font-size: var(--big-font);
+    color: var(--main-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: .3rem;
+    text-align: center;
+}
+
+.dashboard__email {
+    font-size: var(--tiny-font);
+    font-style: italic;
+}
