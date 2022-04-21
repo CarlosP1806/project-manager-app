@@ -7,7 +7,7 @@ router.get('/me', authMiddleware, async ({ user = null, params }, res) => {
   try {
     const foundUser = await User.findOne({
       $or: [{ _id: user ? user._id : params.id }, { username: params.username }]
-    });
+    }).populate('projects');
     if (!foundUser) {
       res.status(404).json({ message: 'cannot find user' });
       return;
