@@ -1,45 +1,43 @@
 import React, { useState, useEffect } from 'react'
 import { createUser, getMe } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
+import './LoginView.css';
 
 function LoginView() {
 
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  // Determine if login or sign up
+  const [inputFromLogin, setInputFromLogin] = useState(true);
 
-  const [userData, setUserData] = useState({});
-  const [loading, setLoading] = useState(true);
+  // Form details
+  const [loginFormInput, setLoginFormInput] = useState({
+    username: "",
+    password: ""
+  });
 
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const [signFormInput, setSignFormInput] = useState({
+    signUsername: "",
+    signEmail: "",
+    signPassword: ""
+  });
 
-        if (!token) {
-          return false;
-        }
+  function handleLoginChange(event) {
+    setLoginFormInput(prev => {
+      return { ...prev, [event.target.name]: event.target.value };
+    });
+  }
 
-        const response = await getMe(token);
-        if (!response.ok) {
-          throw new Error('something went wrong');
-        }
-
-        const user = await response.json();
-        setUserData(user);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getUserData();
-  }, []);
+  function handleSignChange(event) {
+    setSignFormInput(prev => {
+      return { ...prev, [event.target.name]: event.target.value };
+    });
+  }
 
   async function handleSignUp(event) {
     event.preventDefault();
-
     try {
-      const response = await createUser({ username, email, password });
+      const { signUsername, signEmail, signPassword } = signFormInput;
+      const response = await createUser(
+        { username: signUsername, email: signEmail, password: signPassword });
       if (!response.ok) {
         throw new Error('something went wrong');
       }
@@ -51,58 +49,89 @@ function LoginView() {
     }
   }
 
-  if(loading) {
-    return (
-      <>Loading...</>
-    )
-  }
-
   return (
     <>
-      {Auth.loggedIn() ?
-        (<p>Hi User: {userData.username}</p>)
-        :
-        (<p>Not logged</p>)}
+      <main className="auth-form-view">
+        <section className="auth-form-container">
+          <header className="auth-form__header">
+            <h1 className="auth-form__title">Project Manager App</h1>
+            <div className="auth-form__buttons">
+              <div
+                className={`auth-form__button ${inputFromLogin ? 'active' : ''}`}
+                onClick={() => setInputFromLogin(true)}>
+                Login
+              </div>
+              <div
+                className={`auth-form__button ${inputFromLogin ? '' : 'active'}`}
+                onClick={() => setInputFromLogin(false)}>
+                Sign Up
+              </div>
+            </div>
+          </header>
+          <div className="auth-form__content">
+            {inputFromLogin ? (<>
+              <form className="login-form">
+                <div className="form__row">
+                  <label className="form__label" htmlFor="username">Username:</label>
+                  <input
+                    className="form__input"
+                    type="text"
+                    id="username"
+                    name="username"
+                    onChange={handleLoginChange}
+                    value={loginFormInput.username} />
+                </div>
+                <div className="form__row">
+                  <label className="form__label" htmlFor="password">Password:</label>
+                  <input
+                    className="form__input"
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={handleLoginChange}
+                    value={loginFormInput.password} />
+                </div>
+                <button className="form__btn">Login</button>
+              </form>
+            </>) : (<>
+              <form className="sign-form" onSubmit={handleSignUp}>
+                <div className="form__row">
+                  <label className="form__label" htmlFor="sign-username">Username:</label>
+                  <input
+                    className="form__input"
+                    type="text"
+                    name="signUsername"
+                    id="sign-username"
+                    onChange={handleSignChange}
+                    value={signFormInput.signUsername} />
+                </div>
+                <div className="form__row">
+                  <label className="form__label" htmlFor="sign-email">Email:</label>
+                  <input
+                    className="form__input"
+                    type="email"
+                    name="signEmail"
+                    id="sign-email"
+                    onChange={handleSignChange}
+                    value={signFormInput.signEmail} />
+                </div>
 
-      <h2>Login</h2>
-      <form>
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username} />
-        <input
-          type="text"
-          placeholder="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password} />
-        <button>Login</button>
-      </form>
-
-      <h2>SignUp</h2>
-      <form onSubmit={handleSignUp}>
-        <input
-          type="text"
-          placeholder="username"
-          id="username"
-          onChange={(e) => setUsername(e.target.value)}
-          value={username} />
-        <input
-          type="email"
-          placeholder="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email} />
-        <input
-          type="text"
-          placeholder="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password} />
-        <button>SignUp</button>
-      </form>
+                <div className="form__row">
+                  <label className="form__label" htmlFor="sign-password">Password:</label>
+                  <input
+                    className="form__input"
+                    type="password"
+                    name="signPassword"
+                    id="sign-password"
+                    onChange={handleSignChange}
+                    value={signFormInput.signPassword} />
+                </div>
+                <button className="form__btn">Sign Up</button>
+              </form>
+            </>)}
+          </div>
+        </section>
+      </main>
     </>
   )
 }
