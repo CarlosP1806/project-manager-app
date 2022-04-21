@@ -31,9 +31,26 @@
     letter-spacing: 1px;
     margin-bottom: .3rem;
     text-align: center;
+    font-weight: normal;
 }
 
 .dashboard__email {
     font-size: var(--tiny-font);
     font-style: italic;
+}
+
+.dashboard__title {
+    font-weight: 500;
+    color: var(--main-color);
+    font-size: var(--big-font);
+    border-bottom: 2px solid var(--main-color);
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.dashboard__projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
 }

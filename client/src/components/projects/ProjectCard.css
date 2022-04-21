@@ -1,0 +1,19 @@
+.project-card {
+    width: 200px;
+    background-color: var(--main-color);
+    min-height: 100px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.project-card__title {
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: var(--tiny-font);
+}

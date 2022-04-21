@@ -3,6 +3,7 @@ import { getMe } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
 import TopNavbar from '../../components/navbars/TopNavbar';
 import './DashboardView.css'
+import ProjectCard from '../../components/projects/ProjectCard';
 
 function DashboardView() {
 
@@ -47,14 +48,24 @@ function DashboardView() {
 
         <section className="dashboard">
           <div className="dashboard__left">
-            <h1 className="dashboard__username">{userData.username}</h1>
+            <h2 className="dashboard__username">{userData.username}</h2>
             <p className="dashboard__email">{userData.email}</p>
 
             <p>Notifications go here</p>
           </div>
           <div className="dashboard__right">
+            <h1 className="dashboard__title">Your Projects</h1>
             <div className="dashboard__projects">
-              Project 1
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
+              <ProjectCard title="Project 1"/>
             </div>
           </div>
         </section>
