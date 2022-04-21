@@ -8,7 +8,11 @@ const projectSchema = new Schema({
   tasks: [{
     type: Schema.Types.ObjectId,
     ref: 'Task'
-  }]
+  }],
+  ownerId: {
+    type: String,
+    required: true
+  }
 });
 
 const Project = model('Project', projectSchema);
