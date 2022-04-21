@@ -5,6 +5,7 @@ import './index.css'
 import ProjectView from './pages/project_views/ProjectView';
 import LoginView from './pages/profile_views/LoginView';
 import { ProjectDataProvider } from './context/projectContext';
+import DashboardView from './pages/profile_views/DashboardView';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
             <Route
               path="/"
               element={<LoginView />} />
+            <Route
+              path="/dashboard"
+              element={<DashboardView />} />
             <Route
               path="/project/:id/overview"
               element={<ProjectView currentSection="overview" />} />
