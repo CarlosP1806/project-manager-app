@@ -14,7 +14,11 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  projects: [{
+    type: Schema.Types.ObjectId,
+    ref: "Project"
+  }]
 });
 
 const User = model('User', userSchema);

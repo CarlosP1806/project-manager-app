@@ -1,7 +1,11 @@
 import React from 'react'
+import { useProjectData } from '../../context/projectContext';
 import './ProjectSummary.css'
 
 function ProjectOverview() {
+
+  const { data } = useProjectData();
+
   return (
     <>
       <section className="section section--overview">
@@ -13,11 +17,7 @@ function ProjectOverview() {
             <article className="overview__description">
               <h2 className="overview__header">Description</h2>
               <p className="overview__text">
-                Fusce ultrices elit sapien, id condimentum nisi volutpat eu. Pellentesque id 
-                sem quis magna ullamcorper maximus. Aliquam vel luctus ex. Nam convallis metus 
-                risus, ut aliquet erat consectetur vitae. Etiam risus eros, convallis quis orci 
-                vel, dignissim maximus eros. Suspendisse non laoreet urna. Curabitur egestas dapibus 
-                erat efficitur efficitur.
+                {data.description}
               </p>
             </article>
             <article className="overview__members">

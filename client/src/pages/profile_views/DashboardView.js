@@ -4,11 +4,13 @@ import Auth from '../../utils/auth';
 import TopNavbar from '../../components/navbars/TopNavbar';
 import './DashboardView.css'
 import ProjectCard from '../../components/projects/ProjectCard';
+import AddProjectModal from '../../components/projects/AddProjectModal';
 
 function DashboardView() {
 
   const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
+  const [showAddProjectModal, setShowAddProjectModal] = useState(false);
 
   // Get current user data
   useEffect(() => {
@@ -41,10 +43,11 @@ function DashboardView() {
     return <>Loading...</>
   }
 
+
   return (
     <>
       <main className="main main--full">
-        <TopNavbar profileName={userData.username}/>
+        <TopNavbar profileName={userData.username} />
 
         <section className="dashboard">
           <div className="dashboard__left">
@@ -54,22 +57,26 @@ function DashboardView() {
             <p>Notifications go here</p>
           </div>
           <div className="dashboard__right">
-            <h1 className="dashboard__title">Your Projects</h1>
+            <header className="dashboard__header">
+              <h1 className="dashboard__title">Your Projects</h1>
+              <button
+                className="dashboard__button"
+                onClick={() => setShowAddProjectModal(true)}>
+                Add Project
+              </button>
+            </header>
             <div className="dashboard__projects">
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
-              <ProjectCard title="Project 1"/>
+              {userData.projects.map(project => (
+                <ProjectCard key={project._id} id={project._id} title={project.title} />
+              ))}
             </div>
           </div>
         </section>
       </main>
+
+      {showAddProjectModal && (
+        <AddProjectModal user={userData} onClose={() => setShowAddProjectModal(false)} />
+      )}
     </>
   )
 }

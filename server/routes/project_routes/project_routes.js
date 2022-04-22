@@ -1,15 +1,35 @@
 const router = require('express').Router();
+const { authMiddleware } = require('../../utils/auth');
 const Project = require('../../models/Project');
+const User = require('../../models/User');
 const Task = require('../../models/Task');
 
 // Create a new project
-router.post('/', async (req, res) => {
+router.post('/', authMiddleware, async (req, res) => {
   try {
-    const newProject = await Project.create(req.body);
+    const ownerId = req.user._id;
+    const projectData = {
+      ownerId,
+      title: req.body.title,
+      description: req.body.description
+    };
+
+    const newProject = await Project.create(projectData);
     if (!newProject) {
-      res.status(500).json({ message: "error creating project " });
+      res.status(500).json({ message: "error creating project" });
       return;
     }
+
+    // Add project to user's list
+    const owner = await User.findOneAndUpdate(
+      { _id: ownerId },
+      { $push: { "projects": newProject._id } }
+    );
+    if (!owner) {
+      res.status(404).json({ message: "cannot find user" });
+      return;
+    }
+
     res.status(200).json(newProject);
   } catch (err) {
     console.log(err);

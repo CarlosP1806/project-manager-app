@@ -13,7 +13,7 @@ function ProjectView({
   currentSection
 }) {
   const [currentView, setCurrentView] = useState(currentSection);
-  const { setProjectId, loading } = useProjectData();
+  const { setProjectId, loading, data } = useProjectData();
 
   // Get project id to fetch context data
   const { id } = useParams();
@@ -43,7 +43,7 @@ function ProjectView({
   return (
     <>
       <AsideNavbar
-        projectName="Test Project"
+        projectName={data.title}
         profileOwnership="Owner"
         currentView={currentView} />
 
