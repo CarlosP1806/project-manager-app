@@ -45,11 +45,31 @@
     font-size: var(--big-font);
     border-bottom: 2px solid var(--main-color);
     display: inline-block;
-    margin-bottom: 2rem;
+}
+
+.dashboard__header {
+    margin-bottom: 2.5rem;
 }
 
 .dashboard__projects {
     display: flex;
     flex-wrap: wrap;
     gap: 4rem;
+}
+
+.dashboard__button {
+    margin-left: 2rem;
+    padding: 1rem 2rem;
+    border: none;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    font-weight: normal;
+    transition: .2s ease-in-out;
+}
+
+.dashboard__button:hover {
+    background-color: var(--secondary-color);
 }

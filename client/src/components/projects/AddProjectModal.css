@@ -1,0 +1,38 @@
+.add-project-modal {
+    width: 600px;
+    max-width: 80%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    z-index: 10;
+}
+
+.add-project-modal__header {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-project-modal__title {
+    font-size: var(--small-font);
+    color: var(--main-color);
+}
+
+.add-project-modal__close {
+    font-size: var(--small-font);
+    cursor: pointer;
+}
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
