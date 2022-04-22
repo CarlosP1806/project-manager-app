@@ -1,11 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useProjectData } from '../../context/projectContext';
+import { useUserData } from '../../context/userContext';
 import './ViewTaskModal.css'
 
 function ViewTaskModal({ taskId, onClose }) {
 
   const { data } = useProjectData();
+  const { userData } = useUserData();
+
   const currentTask = data.tasks.find(task => task._id === taskId);
+
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState("");
+
+  useEffect(() => {
+    getComments();
+  });
 
   // Get header color
   function getColor() {
@@ -48,6 +58,37 @@ function ViewTaskModal({ taskId, onClose }) {
     }
   }
 
+  async function getComments() {
+    let response = await fetch(`/project/task/${currentTask._id}`);
+    response = await response.json();
+    setComments(response.comments);
+  }
+
+  async function handleAddComment(event) {
+    event.preventDefault();
+
+    const comment = {
+      author: userData.username,
+      content: newComment,
+      commentId: (Math.random() + 1).toString(36).substring(7)
+    };
+    const updatedComments = [...comments, comment];
+    setComments(updatedComments);
+    const response = await fetch('/project/task', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        _id: currentTask._id,
+        comments: updatedComments
+      })
+    });
+    if (!response.ok) {
+      alert("something went wrong");
+    }
+  }
+
   async function handleUpdateStatus() {
     const response = await fetch('/project/task', {
       method: 'PUT',
@@ -59,7 +100,7 @@ function ViewTaskModal({ taskId, onClose }) {
         status: getNextStatus()
       })
     });
-    if(!response.ok) {
+    if (!response.ok) {
       alert("something went wrong");
     } else {
       onClose();
@@ -99,11 +140,22 @@ function ViewTaskModal({ taskId, onClose }) {
             </section>
             <section className="view-task-modal__section">
               <h3 className="view-task-modal__title">Comments</h3>
-              {currentTask.comments.length ?
-                (<p>This is a commment</p>)
-                :
-                (<p className="view-task-modal__message">No comments yet.</p>)
-              }
+              <form className="view-task-modal__add-comment" onSubmit={handleAddComment}>
+                <input
+                  required
+                  className="add-comment__input"
+                  placeholder="Write a comment"
+                  type="text"
+                  name="comment"
+                  onChange={(e) => setNewComment(e.target.value)}
+                  id="comment" />
+                <button className="add-comment__btn">Save</button>
+              </form>
+
+              {comments.map(comment => (
+                <div key={comment.commentId}>{comment.content}</div>
+              ))}
+
             </section>
           </div>
           <aside className="view-task-modal__actions">

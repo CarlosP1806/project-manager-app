@@ -39,6 +39,7 @@ const taskSchema = new Schema({
     type: String
   }],
   comments: [{
+    commentId: String,
     author: String,
     content: String
   }]
