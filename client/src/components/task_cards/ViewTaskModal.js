@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useProjectData } from '../../context/projectContext';
 import { useUserData } from '../../context/userContext';
+import TaskComment from './TaskComment';
 import './ViewTaskModal.css'
 
 function ViewTaskModal({ taskId, onClose }) {
@@ -86,6 +87,8 @@ function ViewTaskModal({ taskId, onClose }) {
     });
     if (!response.ok) {
       alert("something went wrong");
+    } else {
+      setNewComment("");
     }
   }
 
@@ -147,13 +150,17 @@ function ViewTaskModal({ taskId, onClose }) {
                   placeholder="Write a comment"
                   type="text"
                   name="comment"
+                  value={newComment}
                   onChange={(e) => setNewComment(e.target.value)}
                   id="comment" />
                 <button className="add-comment__btn">Save</button>
               </form>
 
               {comments.map(comment => (
-                <div key={comment.commentId}>{comment.content}</div>
+                <TaskComment
+                  key={comment.commentId}
+                  author={comment.author}
+                  content={comment.content} />
               ))}
 
             </section>

@@ -1,0 +1,14 @@
+.task-comment {
+    margin: 1rem 0;
+}
+
+.task-comment__author {
+    font-size: var(--tiny-font);
+    margin-bottom: .2rem;
+    font-weight: normal;
+    color: var(--main-color);
+}
+
+.task-comment__content {
+    font-size: var(--tiny-font);
+}
