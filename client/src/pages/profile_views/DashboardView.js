@@ -5,44 +5,22 @@ import TopNavbar from '../../components/navbars/TopNavbar';
 import './DashboardView.css'
 import ProjectCard from '../../components/projects/ProjectCard';
 import AddProjectModal from '../../components/projects/AddProjectModal';
+import { useUserData } from '../../context/userContext';
 
 function DashboardView() {
 
-  const [userData, setUserData] = useState();
+  const {userData, loadingUser } = useUserData();
   const [loading, setLoading] = useState(true);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
-
-  // Get current user data
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
-        if (!token) {
-          return false;
-        }
-        const response = await getMe(token);
-        if (!response.ok) {
-          throw new Error('something went wrong!');
-        }
-        const user = await response.json();
-        setUserData(user);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getUserData();
-  }, []);
 
   if (!Auth.loggedIn()) {
     window.location.assign("/");
     return;
   }
 
-  if (loading) {
+  if (loadingUser) {
     return <>Loading...</>
   }
-
 
   return (
     <>

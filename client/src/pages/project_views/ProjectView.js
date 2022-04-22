@@ -8,10 +8,13 @@ import ProjectSummary from './ProjectSummary';
 
 import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
+import { useUserData } from '../../context/userContext';
 
 function ProjectView({
   currentSection
 }) {
+  
+  const { userData, loadingUser } = useUserData();
   const [currentView, setCurrentView] = useState(currentSection);
   const { setProjectId, loading, data } = useProjectData();
 
@@ -31,7 +34,7 @@ function ProjectView({
     }
   }
 
-  if (loading) {
+  if (loading || loadingUser) {
     return (
       // TODO: ADD LOADING COMPONENT
       <>
@@ -48,7 +51,7 @@ function ProjectView({
         currentView={currentView} />
 
       <main className="main">
-        <TopNavbar profileName="Carlos Paez" />
+        <TopNavbar profileName={userData.username} />
         <div className="content-wrapper">
           {getCurrentSection()}
         </div>
