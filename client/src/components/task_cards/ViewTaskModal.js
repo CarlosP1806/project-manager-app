@@ -1,10 +1,12 @@
 import React from 'react'
 import { useProjectData } from '../../context/projectContext';
+import TaskCommentContainer from './TaskCommentContainer';
 import './ViewTaskModal.css'
 
 function ViewTaskModal({ taskId, onClose }) {
 
   const { data } = useProjectData();
+
   const currentTask = data.tasks.find(task => task._id === taskId);
 
   // Get header color
@@ -59,7 +61,7 @@ function ViewTaskModal({ taskId, onClose }) {
         status: getNextStatus()
       })
     });
-    if(!response.ok) {
+    if (!response.ok) {
       alert("something went wrong");
     } else {
       onClose();
@@ -99,11 +101,7 @@ function ViewTaskModal({ taskId, onClose }) {
             </section>
             <section className="view-task-modal__section">
               <h3 className="view-task-modal__title">Comments</h3>
-              {currentTask.comments.length ?
-                (<p>This is a commment</p>)
-                :
-                (<p className="view-task-modal__message">No comments yet.</p>)
-              }
+                <TaskCommentContainer currentTask={currentTask}/>
             </section>
           </div>
           <aside className="view-task-modal__actions">

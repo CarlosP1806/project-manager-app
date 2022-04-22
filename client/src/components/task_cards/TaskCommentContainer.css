@@ -1,0 +1,36 @@
+
+.view-task-modal__add-comment {
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+}
+
+.add-comment__input {
+    flex: 1;
+    font-size: var(--tiny-font);
+    padding: .2rem;
+    margin-right: 1rem;
+    border: none;
+    border-bottom: 1px solid #777;
+}
+
+.add-comment__input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.add-comment__btn {
+    background-color: var(--main-color);
+    border: none;
+    padding: .7rem 1.5rem;
+    font-size: 1.4rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.add-comment__btn:hover {
+    background-color: var(--secondary-color);
+}
