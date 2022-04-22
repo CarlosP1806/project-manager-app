@@ -9,6 +9,10 @@ const projectSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Task'
   }],
+  description: {
+    type: String,
+    required: true
+  },
   ownerId: {
     type: String,
     required: true

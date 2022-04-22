@@ -8,7 +8,8 @@ function AddProjectModal({
 }) {
 
   const [formInput, setFormInput] = useState({
-    title: ""
+    title: "",
+    description: ""
   });
 
   function handleInputChange(event) {
@@ -24,7 +25,7 @@ function AddProjectModal({
 
     const token = Auth.getToken();
     const projectData = {
-      title: formInput.title,
+      ...formInput,
       ownerId: user._id
     }
 
@@ -62,6 +63,15 @@ function AddProjectModal({
                 name="title"
                 className="form__input"
                 type="text"
+                onChange={handleInputChange} />
+            </div>
+            <div className="form__row">
+              <label className="form__label" htmlFor="description">Description:</label>
+              <textarea
+                required
+                id="description"
+                name="description"
+                className="form__input"
                 onChange={handleInputChange} />
             </div>
             <button className="form__btn">Create</button>

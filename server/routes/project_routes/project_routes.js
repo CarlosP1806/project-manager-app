@@ -10,7 +10,8 @@ router.post('/', authMiddleware, async (req, res) => {
     const ownerId = req.user._id;
     const projectData = {
       ownerId,
-      title: req.body.title
+      title: req.body.title,
+      description: req.body.description
     };
 
     const newProject = await Project.create(projectData);
