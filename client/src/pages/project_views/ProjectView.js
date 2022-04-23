@@ -13,7 +13,7 @@ import { useUserData } from '../../context/userContext';
 function ProjectView({
   currentSection
 }) {
-  
+
   const { userData, loadingUser } = useUserData();
   const [currentView, setCurrentView] = useState(currentSection);
   const { setProjectId, loading, data } = useProjectData();
@@ -23,6 +23,7 @@ function ProjectView({
   useEffect(() => {
     setProjectId(id);
   }, []);
+
 
   function getCurrentSection() {
     switch (currentView) {
@@ -41,6 +42,14 @@ function ProjectView({
         <p>Loading...</p>
       </>
     )
+  } else {
+    // Determine if user has access to project
+    let isMember = false
+    data.members.forEach(member => {
+      if(member._id === userData._id) isMember = true;
+    })
+
+    if(!isMember) window.location.assign('/dashboard');
   }
 
   return (

@@ -16,7 +16,11 @@ const projectSchema = new Schema({
   ownerId: {
     type: String,
     required: true
-  }
+  },
+  members: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 });
 
 const Project = model('Project', projectSchema);

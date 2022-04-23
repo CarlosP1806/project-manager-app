@@ -11,7 +11,8 @@ router.post('/', authMiddleware, async (req, res) => {
     const projectData = {
       ownerId,
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      members: [ownerId]
     };
 
     const newProject = await Project.create(projectData);
@@ -40,7 +41,8 @@ router.post('/', authMiddleware, async (req, res) => {
 // Get a project by id
 router.get('/:id', async (req, res) => {
   try {
-    const project = await Project.findOne({ _id: req.params.id }).populate('tasks');
+    const project = await Project.findOne({ _id: req.params.id })
+      .populate('tasks').populate('members');
     if (!project) {
       res.status(404).json({ message: "unable to find project" });
       return;
