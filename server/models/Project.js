@@ -16,7 +16,8 @@ const projectSchema = new Schema({
   ownerId: {
     type: String,
     required: true
-  }
+  },
+  membersIds: [String]
 });
 
 const Project = model('Project', projectSchema);

@@ -11,7 +11,8 @@ router.post('/', authMiddleware, async (req, res) => {
     const projectData = {
       ownerId,
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      membersIds: [ownerId]
     };
 
     const newProject = await Project.create(projectData);
