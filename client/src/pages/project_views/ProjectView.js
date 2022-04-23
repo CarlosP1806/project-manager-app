@@ -44,9 +44,12 @@ function ProjectView({
     )
   } else {
     // Determine if user has access to project
-    if (!data.membersIds.includes(userData._id)) {
-      window.location.assign('/dashboard');
-    }
+    let isMember = false
+    data.members.forEach(member => {
+      if(member._id === userData._id) isMember = true;
+    })
+
+    if(!isMember) window.location.assign('/dashboard');
   }
 
   return (
