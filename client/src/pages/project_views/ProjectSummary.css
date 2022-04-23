@@ -9,8 +9,12 @@
     display: flex;
 }
 
-.overview__left, .overview__right {
+.overview__left {
     flex: 1;
+}
+
+.overview__right {
+    flex: 2
 }
 
 .overview__left {
@@ -19,8 +23,9 @@
     margin-right: 2rem;
 }
 
-.overview__description, .overview__members {
+.overview__members {
     flex: 1;
+    margin-top: 3rem;
 }
 
 .overview__header {

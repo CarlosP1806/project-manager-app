@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getMe } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
 import TopNavbar from '../../components/navbars/TopNavbar';
 import './DashboardView.css'
-import ProjectCard from '../../components/projects/ProjectCard';
-import AddProjectModal from '../../components/projects/AddProjectModal';
+import ProjectCard from '../../components/projects_dashboard/ProjectCard';
+import AddProjectModal from '../../components/projects_dashboard/AddProjectModal';
 import { useUserData } from '../../context/userContext';
 
 function DashboardView() {

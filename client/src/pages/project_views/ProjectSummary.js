@@ -1,4 +1,5 @@
 import React from 'react'
+import Members from '../../components/project_summary/Members';
 import { useProjectData } from '../../context/projectContext';
 import './ProjectSummary.css'
 
@@ -22,7 +23,7 @@ function ProjectOverview() {
             </article>
             <article className="overview__members">
               <h2 className="overview__header">Active Members</h2>
-              These are the project members
+              <Members />
             </article>
           </div>
           <div className="overview__right">
