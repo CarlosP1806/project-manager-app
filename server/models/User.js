@@ -18,6 +18,10 @@ const userSchema = new Schema({
   projects: [{
     type: Schema.Types.ObjectId,
     ref: "Project"
+  }],
+  invitations: [{
+    issuedBy: String,
+    projectId: String
   }]
 });
 
