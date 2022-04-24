@@ -13,6 +13,7 @@ function InvitationsContainer() {
         {userData.invitations.map(invitation => (
           <Invitation
             key={invitation.invitationId}
+            invitationId={invitation.invitationId}
             issuedBy={invitation.issuedBy}
             projectId={invitation.projectId} />
         ))}
