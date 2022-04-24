@@ -1,0 +1,50 @@
+.invitation {
+    display: flex;
+    margin: .5rem 0;
+    background-color: var(--light-color);
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.invitation__text {
+    font-size: 1.4rem;
+    max-width: 150px;
+    margin-right: .5rem;
+}
+
+.invitation__text span {
+    font-size: inherit;
+    font-weight: 500;
+}
+
+.invitation__buttons {
+    display: flex;
+    align-items: center;
+}
+
+.invitation__buttons button {
+    padding: 1rem 2rem;
+    background-color: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    font-size: 1.2rem;
+}
+
+#accept {
+    margin-right: .5rem;
+    border: 2px solid green;
+}
+
+#accept:hover {
+    color: white;
+    background-color: green;
+}
+
+#decline {
+    border: 2px solid crimson;
+}
+
+#decline:hover {
+    color: white;
+    background-color: crimson;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Auth from '../../utils/auth';
+import './Invitation.css'
 
 function Invitation({
   invitationId,
@@ -75,11 +76,12 @@ function Invitation({
   return (
     <article className="invitation">
       <p className="invitation__text">
-        User {user.username} invited you to colaborate on {project.title}
+        User <span>{user.username}</span> invited you to colaborate 
+        on <span>{project.title}</span>
       </p>
       <div className="invitation__buttons">
-        <button onClick={handleAcceptInvitation}>Accept</button>
-        <button onClick={handleDeclineInvitation}>Decline</button>
+        <button onClick={handleAcceptInvitation} id="accept">Accept</button>
+        <button onClick={handleDeclineInvitation} id="decline">Decline</button>
       </div>
     </article>
   );

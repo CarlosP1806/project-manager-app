@@ -1,6 +1,7 @@
 import React from 'react';
 import { useUserData } from '../../context/userContext';
 import Invitation from './Invitation';
+import './InvitationsContainer.css'
 
 function InvitationsContainer() {
   const { userData } = useUserData();
