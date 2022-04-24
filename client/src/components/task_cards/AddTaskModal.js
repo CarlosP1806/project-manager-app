@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
 import './AddTaskModal.css'
 import { useParams } from 'react-router-dom';
+import { useUserData } from '../../context/userContext';
 
 function AddTaskModal({
   onClose,
 }) {
   const { id } = useParams();
+  const { userData } = useUserData();
 
   const [form, setForm] = useState({
     title: "",
-    author: "CarlosP18", // TODO: Change author when auth API is created
+    author: userData.username,
     category: "",
     status: "",
     projectId: id,

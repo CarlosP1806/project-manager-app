@@ -20,6 +20,7 @@ const userSchema = new Schema({
     ref: "Project"
   }],
   invitations: [{
+    invitationId: String,
     issuedBy: String,
     projectId: String
   }]

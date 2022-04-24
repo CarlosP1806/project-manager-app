@@ -5,6 +5,7 @@ import './DashboardView.css'
 import ProjectCard from '../../components/projects_dashboard/ProjectCard';
 import AddProjectModal from '../../components/projects_dashboard/AddProjectModal';
 import { useUserData } from '../../context/userContext';
+import InvitationsContainer from '../../components/invitations/InvitationsContainer';
 
 function DashboardView() {
 
@@ -31,7 +32,7 @@ function DashboardView() {
             <h2 className="dashboard__username">{userData.username}</h2>
             <p className="dashboard__email">{userData.email}</p>
 
-            <p>Notifications go here</p>
+            <InvitationsContainer />
           </div>
           <div className="dashboard__right">
             <header className="dashboard__header">

@@ -9,18 +9,50 @@ router.put('/', authMiddleware, async (req, res) => {
   try {
     const newInvitation = {
       issuedBy: req.user._id,
-      projectId: req.body.projectId
+      projectId: req.body.projectId,
+      invitationId: (Math.random() + 1).toString(36).substring(7)
     }
     const invitedUser = await User.findOneAndUpdate(
-      { username: req.body.username},
-      { $push: { "invitations": newInvitation }}
+      { username: req.body.username },
+      { $push: { "invitations": newInvitation } }
     )
-    if(!invitedUser) {
-      res.status(404).json({ message: "cannot find user"});
+    if (!invitedUser) {
+      res.status(404).json({ message: "cannot find user" });
       return;
     }
 
     res.status(200).json(invitedUser);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
+router.put('/accept', authMiddleware, async (req, res) => {
+  try {
+    // Add project to user's project and remove invitation
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: req.user._id },
+      {
+        $push: { "projects": req.body.projectId },
+        $pull: { "invitations": { invitationId: req.body.invitationId } }
+      }
+    );
+    if (!updatedUser) {
+      res.status(404).json({ message: "cannot update user" });
+      return;
+    }
+
+    // Add user to project members
+    const updatedProject = await Project.findOneAndUpdate(
+      { _id: req.body.projectId },
+      { $push: { "members": req.user._id } }
+    );
+    if (!updatedProject) {
+      res.status(404).json({ message: "cannot update project " });
+      return;
+    }
+
+    res.json({ updatedUser, updatedProject });
   } catch (err) {
     res.status(500).json({ message: err });
   }
