@@ -9,7 +9,8 @@ router.put('/', authMiddleware, async (req, res) => {
   try {
     const newInvitation = {
       issuedBy: req.user._id,
-      projectId: req.body.projectId
+      projectId: req.body.projectId,
+      taskId: (Math.random() + 1).toString(36).substring(7)
     }
     const invitedUser = await User.findOneAndUpdate(
       { username: req.body.username},
