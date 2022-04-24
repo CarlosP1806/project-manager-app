@@ -53,6 +53,25 @@ function Invitation({
     }
   }
 
+  async function handleDeclineInvitation() {
+    const token = Auth.getToken();
+    const response = await fetch('/invite/decline', {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        invitationId: invitationId
+      })
+    });
+    if(!response.ok) {
+      alert("something went wrong");
+    } else {
+      window.location.reload();
+    }
+  }
+
   return (
     <article className="invitation">
       <p className="invitation__text">
@@ -60,7 +79,7 @@ function Invitation({
       </p>
       <div className="invitation__buttons">
         <button onClick={handleAcceptInvitation}>Accept</button>
-        <button>Decline</button>
+        <button onClick={handleDeclineInvitation}>Decline</button>
       </div>
     </article>
   );

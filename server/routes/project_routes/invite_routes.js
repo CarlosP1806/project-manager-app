@@ -58,4 +58,22 @@ router.put('/accept', authMiddleware, async (req, res) => {
   }
 });
 
+router.put('/decline', authMiddleware, async (req, res) => {
+  try {
+    // Remove invitation 
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: req.user._id },
+      { $pull: { "invitations": { invitationId: req.body.invitationId } } }
+    );
+    if (!updatedUser) {
+      res.status(404).json({ message: "cannot update user" });
+      return;
+    }
+
+    res.json(updatedUser);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 module.exports = router;
