@@ -37,6 +37,7 @@
 .dashboard__email {
     font-size: var(--tiny-font);
     font-style: italic;
+    text-align: center;
 }
 
 .dashboard__title {

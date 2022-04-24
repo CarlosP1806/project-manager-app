@@ -1,0 +1,10 @@
+.invitations-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.invitations__title {
+    color: var(--main-color);
+    font-size: var(--small-font);
+    margin: 1rem 0;
+}

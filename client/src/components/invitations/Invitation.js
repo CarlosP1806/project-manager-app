@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Auth from '../../utils/auth';
+import './Invitation.css'
 
 function Invitation({
   invitationId,
@@ -53,14 +54,34 @@ function Invitation({
     }
   }
 
+  async function handleDeclineInvitation() {
+    const token = Auth.getToken();
+    const response = await fetch('/invite/decline', {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        invitationId: invitationId
+      })
+    });
+    if(!response.ok) {
+      alert("something went wrong");
+    } else {
+      window.location.reload();
+    }
+  }
+
   return (
     <article className="invitation">
       <p className="invitation__text">
-        User {user.username} invited you to colaborate on {project.title}
+        User <span>{user.username}</span> invited you to colaborate 
+        on <span>{project.title}</span>
       </p>
       <div className="invitation__buttons">
-        <button onClick={handleAcceptInvitation}>Accept</button>
-        <button>Decline</button>
+        <button onClick={handleAcceptInvitation} id="accept">Accept</button>
+        <button onClick={handleDeclineInvitation} id="decline">Decline</button>
       </div>
     </article>
   );
