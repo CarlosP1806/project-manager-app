@@ -9,6 +9,7 @@ import ProjectSummary from './ProjectSummary';
 import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
 import { useUserData } from '../../context/userContext';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 function ProjectView({
   currentSection
@@ -18,6 +19,8 @@ function ProjectView({
   const [currentView, setCurrentView] = useState(currentSection);
   const { setProjectId, loading, data } = useProjectData();
   const [showAsideNav, setShowAsideNav] = useState(false);
+
+  showAsideNav ? disableBodyScroll(document) : enableBodyScroll(document);
 
   // Get project id to fetch context data
   const { id } = useParams();
@@ -61,7 +64,7 @@ function ProjectView({
         currentView={currentView}
         showMobile={showAsideNav}/>
 
-      <main className="main">
+      <main className={`main ${showAsideNav ? 'no-scroll': ''}`}>
         <TopNavbar
           showToggle={true}
           setShowAsideNav={setShowAsideNav}

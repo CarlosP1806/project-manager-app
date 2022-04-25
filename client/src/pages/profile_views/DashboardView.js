@@ -6,12 +6,15 @@ import ProjectCard from '../../components/projects_dashboard/ProjectCard';
 import AddProjectModal from '../../components/projects_dashboard/AddProjectModal';
 import { useUserData } from '../../context/userContext';
 import InvitationsContainer from '../../components/invitations/InvitationsContainer';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 function DashboardView() {
 
   const {userData, loadingUser } = useUserData();
   const [loading, setLoading] = useState(true);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
+
+  showAddProjectModal ? disableBodyScroll(document) : enableBodyScroll(document);
 
   if (!Auth.loggedIn()) {
     window.location.assign("/");
