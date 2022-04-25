@@ -63,6 +63,7 @@ function ProjectView({
 
       <main className="main">
         <TopNavbar
+          showToggle={true}
           setShowAsideNav={setShowAsideNav}
           profileName={userData.username} />
         <div className="content-wrapper">
