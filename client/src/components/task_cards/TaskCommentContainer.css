@@ -34,3 +34,13 @@
 .add-comment__btn:hover {
     background-color: var(--secondary-color);
 }
+
+@media screen and (max-width: 500px) {
+    .view-task-modal__add-comment {
+        flex-direction: column;
+    }
+
+    .add-comment__btn {
+        margin: 1rem 0;
+    }
+}

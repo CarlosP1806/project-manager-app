@@ -10,6 +10,7 @@
     align-items: center;
     color: white;
     padding: 3rem 0;
+    transition: .2s ease-in-out;
 }
 
 .aside-navbar__header {
@@ -59,8 +60,13 @@
     display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .aside-navbar {
         width: 0;
+    }
+
+    .aside-navbar.mobile-active {
+        width: 100%;
+        z-index: 10;
     }
 }

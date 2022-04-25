@@ -6,12 +6,13 @@ function AsideNavbar({
   projectName,
   profileOwnership,
   currentView,
+  showMobile
 }) {
   const { id } = useParams();
 
   return (
     <>
-      <aside className="aside-navbar">
+      <aside className={`aside-navbar ${showMobile ? 'mobile-active' : ''}`}>
         <header className="aside-navbar__header">
           <h2 className="aside-navbar__title">{projectName}</h2>
           <p className="aside-navbar__subtitle">{profileOwnership}</p>

@@ -31,7 +31,7 @@
     background-color: var(--secondary-color);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .tasks__column-container {
         flex-wrap: wrap;
         align-items: center;

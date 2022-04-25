@@ -40,9 +40,14 @@ main {
     bottom: -5px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     main {
         width: 100%;
         left: 0;
+    }
+
+    .section {
+        margin: 3rem auto;
+        width: 90%;
     }
 }

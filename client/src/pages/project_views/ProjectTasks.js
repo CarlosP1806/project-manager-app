@@ -5,11 +5,14 @@ import TasksColumn from '../../components/task_cards/TasksColumn';
 import { useProjectData } from '../../context/projectContext';
 import AddTaskModal from '../../components/task_cards/AddTaskModal';
 import ViewTaskModal from '../../components/task_cards/ViewTaskModal';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 function ProjectTasks() {
   const { data } = useProjectData();
   const [showAddTaskModal, setShowAddTaskModal] = useState(false);
   const [currentModal, setCurrentModal] = useState();
+
+  (showAddTaskModal || currentModal) ? disableBodyScroll(document) : enableBodyScroll(document); 
 
   return (
     <>

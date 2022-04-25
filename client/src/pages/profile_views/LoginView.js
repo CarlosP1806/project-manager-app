@@ -64,6 +64,10 @@ function LoginView() {
     }
   }
 
+  if(Auth.loggedIn()) {
+    window.location.assign("/dashboard");
+  }
+
   return (
     <>
       <main className="auth-form-view">

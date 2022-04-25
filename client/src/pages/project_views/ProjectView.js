@@ -9,6 +9,7 @@ import ProjectSummary from './ProjectSummary';
 import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
 import { useUserData } from '../../context/userContext';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 function ProjectView({
   currentSection
@@ -17,6 +18,9 @@ function ProjectView({
   const { userData, loadingUser } = useUserData();
   const [currentView, setCurrentView] = useState(currentSection);
   const { setProjectId, loading, data } = useProjectData();
+  const [showAsideNav, setShowAsideNav] = useState(false);
+
+  showAsideNav ? disableBodyScroll(document) : enableBodyScroll(document);
 
   // Get project id to fetch context data
   const { id } = useParams();
@@ -46,10 +50,10 @@ function ProjectView({
     // Determine if user has access to project
     let isMember = false
     data.members.forEach(member => {
-      if(member._id === userData._id) isMember = true;
+      if (member._id === userData._id) isMember = true;
     })
 
-    if(!isMember) window.location.assign('/dashboard');
+    if (!isMember) window.location.assign('/dashboard');
   }
 
   return (
@@ -57,10 +61,14 @@ function ProjectView({
       <AsideNavbar
         projectName={data.title}
         profileOwnership="Owner"
-        currentView={currentView} />
+        currentView={currentView}
+        showMobile={showAsideNav}/>
 
-      <main className="main">
-        <TopNavbar profileName={userData.username} />
+      <main className={`main ${showAsideNav ? 'no-scroll': ''}`}>
+        <TopNavbar
+          showToggle={true}
+          setShowAsideNav={setShowAsideNav}
+          profileName={userData.username} />
         <div className="content-wrapper">
           {getCurrentSection()}
         </div>
