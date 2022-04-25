@@ -59,8 +59,13 @@
     display: block;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
     .aside-navbar {
         width: 0;
+    }
+
+    .aside-navbar.mobile-active {
+        width: 100%;
+        z-index: 10;
     }
 }

@@ -17,6 +17,7 @@ function ProjectView({
   const { userData, loadingUser } = useUserData();
   const [currentView, setCurrentView] = useState(currentSection);
   const { setProjectId, loading, data } = useProjectData();
+  const [showAsideNav, setShowAsideNav] = useState(false);
 
   // Get project id to fetch context data
   const { id } = useParams();
@@ -46,10 +47,10 @@ function ProjectView({
     // Determine if user has access to project
     let isMember = false
     data.members.forEach(member => {
-      if(member._id === userData._id) isMember = true;
+      if (member._id === userData._id) isMember = true;
     })
 
-    if(!isMember) window.location.assign('/dashboard');
+    if (!isMember) window.location.assign('/dashboard');
   }
 
   return (
@@ -57,10 +58,13 @@ function ProjectView({
       <AsideNavbar
         projectName={data.title}
         profileOwnership="Owner"
-        currentView={currentView} />
+        currentView={currentView}
+        showMobile={showAsideNav}/>
 
       <main className="main">
-        <TopNavbar profileName={userData.username} />
+        <TopNavbar
+          setShowAsideNav={setShowAsideNav}
+          profileName={userData.username} />
         <div className="content-wrapper">
           {getCurrentSection()}
         </div>

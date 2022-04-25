@@ -12,6 +12,16 @@
     font-weight: normal;
 }
 
+.toggle-menu {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .toggle-menu {
+        display: inline-block
+    }
+}
+
 @media screen and (max-width: 600px) {
     .top-navbar {
         justify-content: center;
