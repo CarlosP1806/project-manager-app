@@ -17,3 +17,9 @@
     color: white;
     font-size: var(--tiny-font);
 }
+
+@media screen and (max-width: 500px) {
+    .project-card {
+        width: 100%;
+    }
+}

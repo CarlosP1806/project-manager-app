@@ -19,6 +19,10 @@ function InvitationsContainer() {
             projectId={invitation.projectId} />
         ))}
 
+        {userData.invitations.length == 0 && (
+          <div className="invitations__message">You have no invitations</div>
+        )}
+
       </div>
     </>
   );
