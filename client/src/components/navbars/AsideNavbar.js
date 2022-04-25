@@ -24,7 +24,7 @@ function AsideNavbar({
         <header className="aside-navbar__header">
           <h2 className="aside-navbar__title">{projectName}</h2>
           <p className="aside-navbar__subtitle">
-            {isProjectOwner ? "Owner" : "Participant"}
+            {isProjectOwner() ? "Owner" : "Participant"}
           </p>
         </header>
         <ul className="aside-navbar__links">
