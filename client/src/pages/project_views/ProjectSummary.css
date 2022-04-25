@@ -39,3 +39,17 @@
     font-size: var(--tiny-font);
     line-height: 1.6;
 }
+
+@media screen and (max-width: 768px) {
+    .overview__container {
+        flex-direction: column;
+    }
+
+    .overview__left {
+        flex: 0;
+    }
+
+    .overview__right {
+        flex: 1;
+    }
+}
