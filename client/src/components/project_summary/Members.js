@@ -10,6 +10,30 @@ function Members() {
 
   const [username, setUsername] = useState();
 
+  function isProjectOwner() {
+    return userData._id === data.ownerId;
+  }
+
+  async function handleDeleteMember(userId) {
+    const token = Auth.getToken();
+    const response = await fetch('/invite/remove-member', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        userId: userId,
+        projectId: data._id
+      })
+    });
+    if (!response.ok) {
+      alert("something went wrong");
+    } else {
+      window.location.reload();
+    }
+  }
+
   async function handleInviteMember(event) {
     event.preventDefault();
 
@@ -55,8 +79,12 @@ function Members() {
           {data.members.map(member => (
             <div key={member._id} className="member">
               <div className="member__username">{member.username}</div>
-              {userData._id !== member._id && (
-                <div className="member__delete">X</div>
+              {isProjectOwner() && userData._id !== member._id && (
+                <div
+                  className="member__delete"
+                  onClick={() => handleDeleteMember(member._id)}>
+                  X
+                </div>
               )}
             </div>
           ))}
