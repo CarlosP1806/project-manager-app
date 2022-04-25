@@ -82,6 +82,10 @@
         width: 90%;
     }
 
+    .dashboard__left {
+        padding-right: 0;
+    }
+
     .dashboard__right {
         border-left: 0;
         border-top: 3px solid var(--main-color);

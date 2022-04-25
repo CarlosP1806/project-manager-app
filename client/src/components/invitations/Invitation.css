@@ -4,6 +4,8 @@
     background-color: var(--light-color);
     padding: 1rem;
     border-radius: 5px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .invitation__text {
@@ -47,4 +49,16 @@
 #decline:hover {
     color: white;
     background-color: crimson;
+}
+
+@media screen and (max-width: 500px) {
+    .invitation {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .invitation__buttons {
+        margin-top: 1rem;
+    }
 }
