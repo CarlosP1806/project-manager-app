@@ -1,6 +1,7 @@
 .project-card {
     width: 200px;
-    background-color: var(--main-color);
+    background: rgb(3,15,98);
+    background: linear-gradient(90deg, rgba(3,15,98,1) 30%, rgba(68,60,151,1) 100%); 
     min-height: 100px;
     border-radius: 10px;
     position: relative;
@@ -8,7 +9,7 @@
 }
 
 .project-card__title {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
     position: absolute;
     bottom: 0;
     width: 100%;
