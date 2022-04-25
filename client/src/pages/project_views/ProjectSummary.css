@@ -47,6 +47,7 @@
 
     .overview__left {
         flex: 0;
+        margin-bottom: 1.5rem;
     }
 
     .overview__right {
