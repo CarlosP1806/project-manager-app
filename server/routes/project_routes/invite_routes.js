@@ -76,4 +76,31 @@ router.put('/decline', authMiddleware, async (req, res) => {
   }
 });
 
+router.put('/remove-member', authMiddleware, async (req, res) => {
+  // TODO: Validate if current user is project owner
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: req.body.userId },
+      { $pull: { "projects": req.body.projectId } }
+    );
+    if (!updatedUser) {
+      res.status(404).json({ message: "cannot update user" });
+      return;
+    }
+
+    const updatedProject = await Project.findOneAndUpdate(
+      { _id: req.body.projectId },
+      { $pull: { "members": req.body.userId } }
+    );
+    if (!updatedProject) {
+      res.status(404).json({ message: "cannot update project" });
+      return;
+    }
+
+    res.status(200).json({ updatedUser, updatedProject });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 module.exports = router;
