@@ -45,4 +45,9 @@ main {
         width: 100%;
         left: 0;
     }
+
+    .section {
+        margin: 3rem auto;
+        width: 90%;
+    }
 }
