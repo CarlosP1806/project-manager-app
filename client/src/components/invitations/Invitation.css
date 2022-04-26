@@ -35,6 +35,7 @@
 #accept {
     margin-right: .5rem;
     border: 2px solid green;
+    color: black;
 }
 
 #accept:hover {
@@ -44,6 +45,7 @@
 
 #decline {
     border: 2px solid crimson;
+    color: black;
 }
 
 #decline:hover {

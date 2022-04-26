@@ -118,6 +118,7 @@
     border: 2px solid crimson;
     cursor: pointer;
     transition: .2s ease-in-out;
+    color: black;
 }
 
 .view-task-modal__delete:hover {
