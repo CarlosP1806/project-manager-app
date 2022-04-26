@@ -1,11 +1,24 @@
 import React from 'react'
 import Members from '../../components/project_summary/Members';
 import { useProjectData } from '../../context/projectContext';
+import { useParams } from 'react-router-dom';
 import './ProjectSummary.css'
 
 function ProjectOverview() {
 
   const { data } = useProjectData();
+  const { id } = useParams();
+
+  async function handleProjectDelete() {
+    const response = await fetch(`/projects/${id}`, {
+      method: "DELETE"
+    });
+    if (!response.ok) {
+      alert("something went wrong");
+    } else {
+      window.location.assign('/dashboard');
+    }
+  }
 
   return (
     <>
@@ -30,6 +43,12 @@ function ProjectOverview() {
             <article className="overview__details">
               <h2 className="overview__header">Details</h2>
               These are other details
+
+              <button
+                className="overview__delete"
+                onClick={handleProjectDelete}>
+                Delete Project
+              </button>
             </article>
           </div>
         </div>

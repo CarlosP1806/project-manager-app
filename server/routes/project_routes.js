@@ -54,6 +54,31 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Delete given project
+router.delete('/:id', async (req, res) => {
+  try {
+    const deletedProject = await Project.findOneAndDelete({ _id: req.params.id });
+    if (!deletedProject) {
+      res.status(404).json({ message: "cannot find project" });
+      return;
+    }
+
+    // Remove project from users
+    const updatedUsers = await Project.deleteMany(
+      { _id: { $in: deletedProject.members } },
+      { $pull: { "projects": deletedProject._id } }
+    );
+    if(!updatedUsers) {
+      res.status(500).json({message: "cannot delete project from users"});
+      return;
+    }
+
+    res.status(200).json(deletedProject);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 // Create a new task
 router.post('/task', async (req, res) => {
   try {
