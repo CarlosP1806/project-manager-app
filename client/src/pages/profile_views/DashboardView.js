@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { useUserData } from '../../context/userContext';
 import Auth from '../../utils/auth';
 import TopNavbar from '../../components/navbars/TopNavbar';
-import './DashboardView.css'
 import ProjectCard from '../../components/projects_dashboard/ProjectCard';
 import AddProjectModal from '../../components/projects_dashboard/AddProjectModal';
-import { useUserData } from '../../context/userContext';
 import InvitationsContainer from '../../components/invitations/InvitationsContainer';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import './DashboardView.css'
 
 function DashboardView() {
-
   const {userData, loadingUser } = useUserData();
-  const [loading, setLoading] = useState(true);
   const [showAddProjectModal, setShowAddProjectModal] = useState(false);
 
   showAddProjectModal ? disableBodyScroll(document) : enableBodyScroll(document);
