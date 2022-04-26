@@ -7,6 +7,7 @@ import AddProjectModal from '../../components/projects_dashboard/AddProjectModal
 import InvitationsContainer from '../../components/invitations/InvitationsContainer';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import './DashboardView.css'
+import Loading from '../../components/loading/Loading';
 
 function DashboardView() {
   const {userData, loadingUser } = useUserData();
@@ -20,7 +21,9 @@ function DashboardView() {
   }
 
   if (loadingUser) {
-    return <>Loading...</>
+    return (
+      <Loading />
+    )
   }
 
   return (

@@ -10,6 +10,7 @@ import { useProjectData } from '../../context/projectContext';
 import { useParams } from 'react-router-dom';
 import { useUserData } from '../../context/userContext';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import Loading from '../../components/loading/Loading';
 
 function ProjectView({
   currentSection
@@ -41,10 +42,7 @@ function ProjectView({
 
   if (loading || loadingUser) {
     return (
-      // TODO: ADD LOADING COMPONENT
-      <>
-        <p>Loading...</p>
-      </>
+      <Loading />
     )
   } else {
     // Determine if user has access to project
