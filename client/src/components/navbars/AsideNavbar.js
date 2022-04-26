@@ -36,12 +36,12 @@ function AsideNavbar({
             className={`aside-navbar__link ${currentView === 'tasks' ? 'active' : ''}`}>
             <a href={`/project/${id}/tasks`}>Tasks</a>
           </li>
-          <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
+          {/* <li className={`aside-navbar__link ${currentView === 'calendar' ? 'active' : ''}`}>
             <a>Calendar</a>
           </li>
           <li className={`aside-navbar__link ${currentView === 'settings' ? 'active' : ''}`}>
             <a>Settings</a>
-          </li>
+          </li> */}
         </ul>
       </aside>
     </>
