@@ -16,7 +16,7 @@ function Members() {
 
   async function handleDeleteMember(userId) {
     const token = Auth.getToken();
-    const response = await fetch('/invite/remove-member', {
+    const response = await fetch('/invitations/remove-member', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ function Members() {
     event.preventDefault();
 
     const token = Auth.getToken();
-    const response = await fetch('/invite', {
+    const response = await fetch('/invitations', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

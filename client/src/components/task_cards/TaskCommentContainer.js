@@ -16,7 +16,7 @@ function TaskCommentContainer({
   });
 
   async function getComments() {
-    let response = await fetch(`/project/task/${currentTask._id}`);
+    let response = await fetch(`/projects/task/${currentTask._id}`);
     response = await response.json();
     setComments(response.comments);
   }
@@ -31,7 +31,7 @@ function TaskCommentContainer({
     };
     const updatedComments = [...comments, comment];
     setComments(updatedComments);
-    const response = await fetch('/project/task', {
+    const response = await fetch('/projects/task', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

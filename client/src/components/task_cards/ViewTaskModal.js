@@ -51,7 +51,7 @@ function ViewTaskModal({ taskId, onClose }) {
   }
 
   async function handleUpdateStatus() {
-    const response = await fetch('/project/task', {
+    const response = await fetch('/projects/task', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ function ViewTaskModal({ taskId, onClose }) {
 
   // Handle task delete
   async function onDeleteTask() {
-    const response = await fetch(`/project/task/${currentTask._id}`, {
+    const response = await fetch(`/projects/task/${currentTask._id}`, {
       method: 'DELETE',
     });
     if (!response.ok) {
