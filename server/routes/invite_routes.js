@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { authMiddleware } = require('../utils/auth');
 const Project = require('../models/Project');
 const User = require('../models/User');
-const Task = require('../models/Task');
 
 // Invite a member to project
 router.put('/', authMiddleware, async (req, res) => {
