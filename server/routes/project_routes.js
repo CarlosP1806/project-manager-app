@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { authMiddleware } = require('../../utils/auth');
-const Project = require('../../models/Project');
-const User = require('../../models/User');
-const Task = require('../../models/Task');
+const { authMiddleware } = require('../utils/auth');
+const Project = require('../models/Project');
+const User = require('../models/User');
+const Task = require('../models/Task');
 
 // Create a new project
 router.post('/', authMiddleware, async (req, res) => {

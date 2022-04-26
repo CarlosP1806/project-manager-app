@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { authMiddleware, signToken } = require('../../utils/auth');
-const User = require('../../models/User');
+const { authMiddleware, signToken } = require('../utils/auth');
+const User = require('../models/User');
 
 // Get current user using middleware
 router.get('/me', authMiddleware, async ({ user = null, params }, res) => {
