@@ -12,13 +12,13 @@ function Invitation({
   const [project, setProject] = useState("");
 
   async function getUser() {
-    let response = await fetch(`/user/${issuedBy}`);
+    let response = await fetch(`/users/${issuedBy}`);
     response = await response.json();
     setUser(response);
   }
 
   async function getProject() {
-    let response = await fetch(`/project/${projectId}`);
+    let response = await fetch(`/projects/${projectId}`);
     response = await response.json();
     setProject(response);
   }
@@ -36,7 +36,7 @@ function Invitation({
 
   async function handleAcceptInvitation() {
     const token = Auth.getToken();
-    const response = await fetch('/invite/accept', {
+    const response = await fetch('/invitations/accept', {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -56,7 +56,7 @@ function Invitation({
 
   async function handleDeclineInvitation() {
     const token = Auth.getToken();
-    const response = await fetch('/invite/decline', {
+    const response = await fetch('/invitations/decline', {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

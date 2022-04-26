@@ -29,7 +29,7 @@ function AddProjectModal({
       ownerId: user._id
     }
 
-    const response = await fetch('/project', {
+    const response = await fetch('/projects', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

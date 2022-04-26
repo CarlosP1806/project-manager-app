@@ -1,5 +1,5 @@
 export const getMe = token => {
-  return fetch('/user/me', {
+  return fetch('/users/me', {
     headers: {
       'Content-Type': 'application/json',
       authorization: `Bearer ${token}`
@@ -8,7 +8,7 @@ export const getMe = token => {
 }
 
 export const createUser = (userData) => {
-  return fetch('/user/', {
+  return fetch('/users/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export const createUser = (userData) => {
 };
 
 export const loginUser = (userData) => {
-  return fetch('/user/login', {
+  return fetch('/users/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

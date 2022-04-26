@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createUser, loginUser } from '../../utils/auth_api';
 import Auth from '../../utils/auth';
 import './LoginView.css';
 
 function LoginView() {
-
-  // Determine if login or sign up
+  // Determine if input comes from login or sign up
   const [inputFromLogin, setInputFromLogin] = useState(true);
 
-  // Form details
   const [loginFormInput, setLoginFormInput] = useState({
     username: "",
     password: ""

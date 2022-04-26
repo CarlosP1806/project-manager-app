@@ -13,7 +13,7 @@ export const ProjectDataProvider = ({ children }) => {
 
   const getData = async () => {
     setLoading(true);
-    let response = await fetch(`/project/${projectId}`);
+    let response = await fetch(`/projects/${projectId}`);
     response = await response.json();
     setData(response);
     setLoading(false);

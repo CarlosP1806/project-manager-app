@@ -28,7 +28,7 @@ function AddTaskModal({
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch('/project/task', {
+    const response = await fetch('/projects/task', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

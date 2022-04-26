@@ -27,8 +27,7 @@ function TasksColumn({
               id={card._id}
               category={card.category}
               title={card.title}
-              postedBy={card.author}
-              labels={card.labels} />
+              postedBy={card.author} />
           ))}
         </div>
       </section>

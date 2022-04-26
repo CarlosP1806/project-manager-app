@@ -35,9 +35,6 @@ const taskSchema = new Schema({
     type: String,
     required: true
   },
-  labels: [{
-    type: String
-  }],
   comments: [{
     commentId: String,
     author: String,

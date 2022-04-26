@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const path = require('path');
 
-const projectRoutes = require('./project_routes/project_routes');
-const userRoutes = require('./user_routes/user_routes');
-const inviteRoutes = require('./project_routes/invite_routes');
+const projectRoutes = require('./project_routes');
+const userRoutes = require('./user_routes');
+const inviteRoutes = require('./invite_routes');
 
-router.use('/project', projectRoutes);
-router.use('/user', userRoutes);
-router.use('/invite', inviteRoutes);
+router.use('/projects', projectRoutes);
+router.use('/users', userRoutes);
+router.use('/invitations', inviteRoutes);
 
 // Serve react front-end in production
 router.use((req, res) => {
