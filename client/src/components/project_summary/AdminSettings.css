@@ -17,3 +17,9 @@
     width: 50%;
     margin-bottom: 3rem;
 }
+
+@media screen and (max-width: 768px) {
+    .form--settings {
+        width: 100%;
+    }
+}

@@ -26,6 +26,7 @@
 .overview__members {
     flex: 1;
     margin-top: 3rem;
+    width: 100%;
 }
 
 .overview__header {
@@ -49,6 +50,7 @@
     .overview__left {
         flex: 0;
         margin-bottom: 1.5rem;
+        margin-right: 0;
     }
 
     .overview__right {
