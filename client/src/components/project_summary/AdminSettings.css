@@ -1,0 +1,19 @@
+.overview__delete {
+    font-size: var(--tiny-font);
+    background-color: crimson;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.overview__delete:hover {
+    opacity: .8;
+}
+
+.form--settings {
+    width: 50%;
+    margin-bottom: 3rem;
+}
