@@ -8,7 +8,7 @@ function Members() {
   const { data } = useProjectData();
   const { userData } = useUserData();
 
-  const [username, setUsername] = useState();
+  const [username, setUsername] = useState("");
 
   function isProjectOwner() {
     return userData._id === data.ownerId;

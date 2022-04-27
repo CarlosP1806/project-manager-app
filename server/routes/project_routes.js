@@ -79,6 +79,23 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Update project with given id
+router.put('/', async (req, res) => {
+  try {
+    const updatedProject = await Project.findOneAndUpdate(
+      { _id: req.body._id },
+      req.body
+    );
+    if (!updatedProject) {
+      res.status(404).json({ message: "cannot find project" });
+      return;
+    }
+    res.status(200).json(updatedProject);
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+});
+
 // Create a new task
 router.post('/task', async (req, res) => {
   try {
