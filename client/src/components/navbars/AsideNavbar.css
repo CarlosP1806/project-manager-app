@@ -28,6 +28,15 @@
     font-size: var(--med-font);
 }
 
+.aside-navbar__close {
+    font-size: var(--big-font);
+    cursor: pointer;
+    padding: 1rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
 .aside-navbar__links {
     flex: 1;
     display: flex;

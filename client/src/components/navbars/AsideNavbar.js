@@ -7,13 +7,14 @@ import { useUserData } from '../../context/userContext';
 function AsideNavbar({
   projectName,
   currentView,
-  showMobile
+  showMobile,
+  setShowMobile
 }) {
   const { id } = useParams();
 
   const { data } = useProjectData();
   const { userData } = useUserData();
-  
+
   function isProjectOwner() {
     return userData._id === data.ownerId;
   }
@@ -26,6 +27,11 @@ function AsideNavbar({
           <p className="aside-navbar__subtitle">
             {isProjectOwner() ? "Owner" : "Participant"}
           </p>
+          {showMobile && (
+            <div className="aside-navbar__close" onClick={() => setShowMobile(false)}>
+              X
+            </div>
+          )}
         </header>
         <ul className="aside-navbar__links">
           <li

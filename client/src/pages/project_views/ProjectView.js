@@ -60,6 +60,7 @@ function ProjectView({
         projectName={data.title}
         profileOwnership="Owner"
         currentView={currentView}
+        setShowMobile={setShowAsideNav}
         showMobile={showAsideNav}/>
 
       <main className={`main ${showAsideNav ? 'no-scroll': ''}`}>
