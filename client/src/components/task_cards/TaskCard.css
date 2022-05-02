@@ -22,6 +22,7 @@
     font-size: var(--small-font);
     margin-bottom: .5rem;
     font-weight: 500;
+    color: #333;
 }
 
 .task-card__author {
