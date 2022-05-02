@@ -48,7 +48,6 @@
 }
 
 .aside-navbar__link {
-    padding: 1.5rem 0;
     cursor: pointer;
     display: block;
     width: 100%;
@@ -65,6 +64,7 @@
 }
 
 .aside-navbar__link a {
+    padding: 1.5rem 0;
     font-size: var(--med-font);
     display: block;
 }
