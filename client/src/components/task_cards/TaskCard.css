@@ -34,6 +34,11 @@
     color: white
 }
 
+.task-card__header--purple {
+    background: purple;
+    color: white
+}
+
 .task-card__header--yellow {
     background: rgb(255, 157, 10);
     color: white;

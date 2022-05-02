@@ -18,6 +18,8 @@ function ViewTaskModal({ taskId, onClose }) {
         return "yellow";
       case "feature":
         return "green";
+      case "update":
+        return "purple";
       default:
         return "blue";
     }

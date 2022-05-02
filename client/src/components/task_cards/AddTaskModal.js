@@ -86,6 +86,7 @@ function AddTaskModal({
                 <option value="feature">Feature</option>
                 <option value="warning">Warning</option>
                 <option value="bug">Bug</option>
+                <option value="update">Update</option>
                 <option value="other">Other</option>
               </select>
             </div>
