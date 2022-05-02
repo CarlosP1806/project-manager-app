@@ -43,6 +43,7 @@ function LoginView() {
       console.log(user);
       Auth.login(token);
     } catch (err) {
+      alert("Invalid username or email. Please try a new one.");
       console.log(err);
     }
   }
@@ -58,6 +59,7 @@ function LoginView() {
       console.log(user);
       Auth.login(token);
     } catch(err) {
+      alert("Invalid credentials!");
       console.log(err);
     }
   }
